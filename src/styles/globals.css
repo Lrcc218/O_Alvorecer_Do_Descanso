@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+/* ── THEME TOKENS (Tailwind v4 inline theme) ── */
+@theme inline {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans:  "Inter", system-ui, sans-serif;
+
+  --color-gold:        var(--gold);
+  --color-terracotta:  var(--terracotta);
+  --color-night:       var(--night);
+  --color-cream:       var(--cream);
+  --color-charcoal:    var(--charcoal);
+
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-muted:       var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border:      var(--border);
+  --color-input:       var(--input);
+  --color-ring:        var(--ring);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-night-deep:  var(--night-deep);
+
+  --animate-pulse-cta: pulse-cta 2.5s infinite ease-in-out;
+}
+
+/* ── CSS VARIABLES ── */
+:root {
+  --radius: 0.875rem;
+
+  /* Core Palette Original Claro — REVERTIDO */
+  --background:  #F7F3E9;
+  --foreground:  #262626;
+  --charcoal:    #262626;
+  --night:       #0A1128;
+  --night-deep:  #050814;
+  --cream:       #F7F3E9;
+  --terracotta:  #C26D4D;
+  --gold:        #D4AF37;
+  --gold-foreground: #262626;
+
+  /* UI */
+  --muted:            #FAF5E6;
+  --muted-foreground: #737373;
+  --border:           rgba(38, 38, 38, 0.1);
+  --input:            rgba(38, 38, 38, 0.1);
+  --ring:             #C26D4D;
+
+  /* Gradients */
+  --gradient-night:      linear-gradient(180deg, #0A1128 0%, #050814 100%);
+  --gradient-gold:       linear-gradient(135deg, #D4AF37 0%, #B8972D 100%);
+  --gradient-terracotta: linear-gradient(135deg, #C26D4D 0%, #A6573B 100%);
+
+  /* Shadows */
+  --shadow-gold:       0 10px 30px -10px rgba(212, 175, 55, 0.3);
+  --shadow-terracotta: 0 12px 28px -10px rgba(194, 109, 77, 0.3);
+  --shadow-soft:       0 20px 50px -25px rgba(38, 38, 38, 0.1);
+}
+
+/* ── KEYFRAMES ── */
+@keyframes pulse-cta {
+  0%   { transform: scale(1);    box-shadow: var(--shadow-terracotta); }
+  50%  { transform: scale(1.03); box-shadow: 0 20px 40px -10px rgba(194,109,77,0.5); }
+  100% { transform: scale(1);    box-shadow: var(--shadow-terracotta); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(194,109,77,0.2), 0 12px 28px -10px rgba(194,109,77,0.3); }
+  50%       { box-shadow: 0 0 35px rgba(194,109,77,0.4), 0 20px 40px -10px rgba(194,109,77,0.5); }
+}
+
+/* ── BASE ── */
+@layer base {
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    overscroll-behavior-y: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  * { border-color: var(--border); }
+  a, button, [role="button"], input, textarea, select, label { 
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
+}
+
+/* ── CUSTOM RANGE SLIDER (CircadianBlueprintTool) ── */
+input[type="range"].circadian-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--terracotta) 100%);
+  outline: none;
+}
+input[type="range"].circadian-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  box-shadow: 0 4px 16px -4px rgba(212,175,55,0.4);
+  border: 3px solid #FDFBF7;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="range"].circadian-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 24px -4px rgba(212,175,55,0.6);
+}
+input[type="range"].circadian-slider::-moz-range-thumb {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  border: 3px solid #FDFBF7;
+  cursor: grab;
+}
+
+/* ── EEG WAVE TRANSITION ── */
+.eeg-wave-path { transition: d 0.8s cubic-bezier(0.4,0,0.2,1); }
+
+/* ── PHASE TAB PILLS (SleepPhasesVisualizer) ── */
+.phase-tab { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.phase-tab[data-active="true"] {
+  background: var(--gradient-terracotta);
+  color: #FDFBF7;
+  box-shadow: 0 8px 24px -8px rgba(194, 109, 77, 0.4);
+}
+
+/* ── AWAKENING PILL (CircadianBlueprintTool) ── */
+.awakening-pill { transition: all 0.25s ease; }
+.awakening-pill[data-selected="true"] {
+  background: var(--gradient-terracotta);
+  color: #FDFBF7;
+  border-color: transparent;
+  box-shadow: 0 6px 20px -6px rgba(194, 109, 77, 0.4);
+}
+
+/* ── CTA GLOW ── */
+.cta-glow:hover { animation: glow-pulse 2s infinite ease-in-out; }
+
+/* ── ULTRA WIDE SCREEN ADAPTATION (43" displays etc) ── */
+@media (min-width: 1536px) {
+  html {
+    /* Scales 1rem linearly with viewport width above 1536px.
+       This ensures the design adapts perfectly to any screen size (like 43" TVs),
+       avoiding the "centralized/constrained" look while maintaining proportions. */
+    font-size: 1.041666vw;
+  }
+}
+
+/* ── PERFORMANCE UTILITIES (120Hz / MOBILE) ── */
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+}
+
+.lazy-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
