@@ -2,6 +2,7 @@
 
 import { Moon, Play, Sparkles } from "lucide-react";
 import { CHECKOUT_URL, trackPurchaseClick, trackNavClick } from "@/services/api";
+import { VimeoPlayer } from "./VimeoPlayer";
 
 const METRICS = [
   { value: "98.4%", label: "Sincronia Neurológica" },
@@ -107,30 +108,8 @@ export function Hero() {
           {/* RIGHT COLUMN: Video player & Metrics Grid */}
           <div className="lg:col-span-6 w-full flex flex-col items-center">
             {/* Vimeo video player framed premiumly */}
-            <div className="w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md aspect-video transform-gpu will-change-transform [backface-visibility:hidden] shadow-[0_30px_60px_-20px_rgba(10,17,40,0.8)] relative">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div
-                  className="absolute inset-0 opacity-40 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle at center, rgba(212, 175, 55, 0.25) 0%, transparent 60%)",
-                  }}
-                />
-                <button
-                  type="button"
-                  className="group relative flex h-20 w-20 items-center justify-center rounded-full transition-transform hover:scale-110 sm:h-24 sm:w-24"
-                  style={{
-                    background: "var(--gradient-gold)",
-                    boxShadow: "0 10px 40px -10px rgba(212, 175, 55, 0.6)",
-                  }}
-                  aria-label="Assistir apresentação"
-                >
-                  <Play className="ml-1.5 h-10 w-10 shrink-0 fill-current sm:h-12 sm:w-12 text-[#0A1128]" />
-                </button>
-                <p className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[10px] sm:text-xs uppercase tracking-[0.3em] text-white/50 font-bold w-full text-center font-sans">
-                  Vimeo • Apresentação do Método
-                </p>
-              </div>
+            <div className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md transform-gpu will-change-transform [backface-visibility:hidden] shadow-[0_30px_60px_-20px_rgba(10,17,40,0.8)] relative p-1">
+              <VimeoPlayer />
             </div>
 
             {/* Metrics grid under video */}

@@ -111,7 +111,7 @@ export function Footer() {
               href="https://instagram.com/SeuPerfil"
               onClick={() => trackNavClick("suporte_instagram")}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="font-semibold underline underline-offset-4 decoration-gold hover:text-gold transition-colors"
               style={{ color: "var(--gold)" }}
             >

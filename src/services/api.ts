@@ -108,6 +108,30 @@ export const trackNavClick = (destination: string) => {
 };
 
 /**
+ * Tracks when a video starts playing (VSL Play)
+ */
+export const trackVideoPlay = (videoId?: string) => {
+  try {
+    if (typeof window !== "undefined") {
+      const params = { video_id: videoId || "vsl_principal", content_name: "VSL Principal" };
+      
+      if (window.dataLayer) {
+        window.dataLayer.push({ event: "video_play", ...params });
+      } else if (window.gtag) {
+        window.gtag("event", "video_play", params);
+      }
+
+      if (window.fbq) {
+        window.fbq("trackCustom", "VideoPlay", params);
+        console.log("[Analytics] VideoPlay event tracked");
+      }
+    }
+  } catch (error) {
+    console.error("[Analytics Error] Failed to track video play:", error);
+  }
+};
+
+/**
  * Grants tracking consent for GDPR/LGPD compliance based on granular preferences
  */
 export const grantConsent = (preferences: { analytics: boolean; marketing: boolean }) => {
