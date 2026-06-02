@@ -1,7 +1,7 @@
 "use client";
 
 import { ShieldCheck, Check, Instagram } from "lucide-react";
-import { CHECKOUT_URL, trackPurchaseClick } from "@/services/api";
+import { CHECKOUT_URL, trackPurchaseClick, trackNavClick } from "@/services/api";
 import { LuxuryDivider } from "@/components/LuxuryDivider";
 
 export function Footer() {
@@ -109,6 +109,7 @@ export function Footer() {
             Ainda tem dúvidas se o método serve para a idade do seu bebê? Fale diretamente comigo.{" "}
             <a
               href="https://instagram.com/SeuPerfil"
+              onClick={() => trackNavClick("suporte_instagram")}
               target="_blank"
               rel="noreferrer"
               className="font-semibold underline underline-offset-4 decoration-gold hover:text-gold transition-colors"

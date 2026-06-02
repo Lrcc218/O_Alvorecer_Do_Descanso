@@ -1,7 +1,7 @@
 "use client";
 
 import { Moon, Play, Sparkles } from "lucide-react";
-import { CHECKOUT_URL, trackPurchaseClick } from "@/services/api";
+import { CHECKOUT_URL, trackPurchaseClick, trackNavClick } from "@/services/api";
 
 const METRICS = [
   { value: "98.4%", label: "Sincronia Neurológica" },
@@ -48,15 +48,16 @@ export function Hero() {
         </div>
         
         <div className="hidden lg:flex space-x-12 text-[10px] uppercase tracking-[0.2em] font-medium text-white/60 items-center">
-          <a href="#architecture" className="hover:text-white transition-colors">Neuroarquitetura</a>
-          <a href="#assessment" className="hover:text-white transition-colors">Diagnóstico</a>
-          <a href="#curriculum" className="hover:text-white transition-colors">O Programa</a>
-          <a href="#testimonials" className="hover:text-white transition-colors">Depoimentos</a>
-          <a href="#oferta" className="px-6 py-2 rounded-full border transition-all" style={{ backgroundColor: "rgba(212,175,55,0.1)", color: "var(--gold)", borderColor: "rgba(212,175,55,0.2)" }}>Área do Aluno</a>
+          <a href="#architecture" onClick={() => trackNavClick("neuroarquitetura")} className="hover:text-white transition-colors">Neuroarquitetura</a>
+          <a href="#assessment" onClick={() => trackNavClick("diagnostico")} className="hover:text-white transition-colors">Diagnóstico</a>
+          <a href="#curriculum" onClick={() => trackNavClick("o_programa")} className="hover:text-white transition-colors">O Programa</a>
+          <a href="#testimonials" onClick={() => trackNavClick("depoimentos")} className="hover:text-white transition-colors">Depoimentos</a>
+          <a href="#oferta" onClick={() => trackNavClick("area_do_aluno")} className="px-6 py-2 rounded-full border transition-all" style={{ backgroundColor: "rgba(212,175,55,0.1)", color: "var(--gold)", borderColor: "rgba(212,175,55,0.2)" }}>Área do Aluno</a>
         </div>
 
         <a
           href="#oferta"
+          onClick={() => trackNavClick("mobile_quero_comecar")}
           className="lg:hidden rounded-full border border-white/25 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white transition-all hover:bg-white/10 sm:text-sm"
         >
           Quero começar

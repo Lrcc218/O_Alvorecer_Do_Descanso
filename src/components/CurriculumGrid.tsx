@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, Variants } from "framer-motion";
+import { trackNavClick } from "@/services/api";
 
 const REVEAL_VARIANTS: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -105,6 +106,7 @@ export function CurriculumGrid() {
 
   const toggleAccordion = (number: string) => {
     setOpenAccordion(openAccordion === number ? null : number);
+    trackNavClick(`accordion_modulo_${number}`);
   };
 
   return (
