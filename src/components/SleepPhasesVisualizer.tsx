@@ -64,7 +64,8 @@ export function SleepPhasesVisualizer() {
       <div
         className="absolute inset-0 pointer-events-none opacity-20"
         style={{
-          background: "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(194, 109, 77, 0.4) 0%, transparent 70%)",
+          background:
+            "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(194, 109, 77, 0.4) 0%, transparent 70%)",
         }}
       />
 
@@ -120,9 +121,13 @@ export function SleepPhasesVisualizer() {
             {/* Simulated Medical Clinical Grid Overlay */}
             <div className="w-full aspect-[3/1] relative rounded-lg border border-[#F5F5F7]/5 bg-black/10 overflow-hidden py-4 px-2">
               {/* Thin coordinate legend markers */}
-              <div className="absolute top-2 left-2 text-[8px] font-mono text-[#F5F5F7]/30">Amplitude (μV)</div>
-              <div className="absolute bottom-2 right-2 text-[8px] font-mono text-[#F5F5F7]/30">Time (s)</div>
-              
+              <div className="absolute top-2 left-2 text-[8px] font-mono text-[#F5F5F7]/30">
+                Amplitude (μV)
+              </div>
+              <div className="absolute bottom-2 right-2 text-[8px] font-mono text-[#F5F5F7]/30">
+                Time (s)
+              </div>
+
               <svg
                 id="eeg-wave"
                 viewBox="0 0 600 100"
@@ -142,7 +147,7 @@ export function SleepPhasesVisualizer() {
                     strokeWidth="0.5"
                   />
                 ))}
-                
+
                 {/* Procedural wave path */}
                 <path
                   d={current.wavePath}
@@ -156,8 +161,8 @@ export function SleepPhasesVisualizer() {
                       current.color === "var(--terracotta)"
                         ? "rgba(194,109,77,0.4)"
                         : current.color === "var(--gold)"
-                        ? "rgba(212,175,55,0.4)"
-                        : "rgba(245,230,196,0.3)"
+                          ? "rgba(212,175,55,0.4)"
+                          : "rgba(245,230,196,0.3)"
                     })`,
                   }}
                 />
@@ -175,7 +180,8 @@ export function SleepPhasesVisualizer() {
                     key={key}
                     className="w-2 h-2 rounded-full transition-all duration-300"
                     style={{
-                      background: activePhase === key ? phaseData[key].color : "rgba(245,245,247,0.15)",
+                      background:
+                        activePhase === key ? phaseData[key].color : "rgba(245,245,247,0.15)",
                     }}
                   />
                 ))}
@@ -213,11 +219,7 @@ export function SleepPhasesVisualizer() {
 
               {/* Parallax mini wave graphic decoration */}
               <div className="mt-8 flex items-center gap-4">
-                <svg
-                  viewBox="0 0 80 20"
-                  className="w-20 h-5 opacity-30"
-                  preserveAspectRatio="none"
-                >
+                <svg viewBox="0 0 80 20" className="w-20 h-5 opacity-30" preserveAspectRatio="none">
                   <path
                     d="M0,10 C10,2 20,18 30,10 C40,2 50,18 60,10 C70,2 80,18 80,10"
                     fill="none"

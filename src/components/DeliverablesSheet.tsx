@@ -13,7 +13,7 @@ const REVEAL_VARIANTS: Variants = {
 
 const TOOLS = [
   { tag: "Template", title: "Diário do Despertar", sub: "Registro de 7 Dias" },
-  { tag: "Ferramenta 1", title: "Checklist \"Ambiente de Cura\"", sub: "" },
+  { tag: "Ferramenta 1", title: 'Checklist "Ambiente de Cura"', sub: "" },
   { tag: "Ferramenta 2", title: "Guia de Exposição à Luz", sub: "Sinalizadores de Tempo" },
   { tag: "Ferramenta 3", title: "A Tabela Mestra de Janelas de Sono", sub: "0 a 36 meses" },
   { tag: "Ferramenta 4", title: "Log de Sonecas Diário", sub: "Identificando o Padrão Único" },
@@ -21,7 +21,11 @@ const TOOLS = [
   { tag: "Ferramenta 6", title: "Protocolo de Emergência da Madrugada", sub: "" },
   { tag: "Ferramenta 7", title: "Diário da Mãe Leve", sub: "Autorreflexão" },
   { tag: "Ferramenta 8", title: "Cards de Afirmações de Calmaria", sub: "" },
-  { tag: "Bônus Geladeira", title: "O Protocolo de 3 Passos para o Alívio da Crise de Cólica", sub: "" },
+  {
+    tag: "Bônus Geladeira",
+    title: "O Protocolo de 3 Passos para o Alívio da Crise de Cólica",
+    sub: "",
+  },
 ];
 
 export function DeliverablesSheet() {
@@ -39,15 +43,13 @@ export function DeliverablesSheet() {
           <h2 className="font-serif text-3xl sm:text-5xl 2xl:text-6xl tracking-tight leading-tight text-[#262626] font-light">
             Seu kit técnico
             <br />
-            <span
-              className="italic font-normal"
-              style={{ color: "var(--terracotta)" }}
-            >
+            <span className="italic font-normal" style={{ color: "var(--terracotta)" }}>
               pronto para imprimir.
             </span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[15px] leading-relaxed text-[#262626]/60 font-sans font-light">
-            8 ferramentas em alta resolução (2K), prontas para uso imediato. Cole na geladeira, deixe na cabeceira, entregue ao seu parceiro(a).
+            8 ferramentas em alta resolução (2K), prontas para uso imediato. Cole na geladeira,
+            deixe na cabeceira, entregue ao seu parceiro(a).
           </p>
         </div>
 
@@ -67,9 +69,7 @@ export function DeliverablesSheet() {
                 <p
                   className="text-xs sm:text-[15px] font-bold uppercase tracking-widest font-sans"
                   style={{
-                    color: tool.tag.startsWith("Bônus")
-                      ? "var(--gold)"
-                      : "var(--terracotta)",
+                    color: tool.tag.startsWith("Bônus") ? "var(--gold)" : "var(--terracotta)",
                   }}
                 >
                   {tool.tag}

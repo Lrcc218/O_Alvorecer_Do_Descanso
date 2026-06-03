@@ -58,7 +58,7 @@ const nextConfig: NextConfig = {
     "*.gitpod.io",
     "*.github.dev",
     "*.idx.google.com",
-    "172.31.87.66"
+    "172.31.87.66",
   ],
 
   // Redirect build output to native Linux filesystem to bypass

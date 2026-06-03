@@ -56,7 +56,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang="pt-BR"
+      className={`${cormorant.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body className="antialiased min-h-screen" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -67,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        
+
         {/* Consent Mode Padrão */}
         <Script id="consent-mode" strategy="beforeInteractive">
           {`
@@ -128,8 +132,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
         <noscript>
-          <img height="1" width="1" style={{ display: "none" }}
-               src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1`}
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${process.env.NEXT_PUBLIC_META_PIXEL_ID}&ev=PageView&noscript=1`}
           />
         </noscript>
 

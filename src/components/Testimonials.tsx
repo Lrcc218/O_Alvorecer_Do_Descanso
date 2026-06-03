@@ -84,10 +84,10 @@ export function Testimonials() {
         <div
           className="flex flex-row flex-nowrap overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory scroll-smooth lg:grid lg:grid-cols-3 lg:overflow-visible lg:whitespace-normal gap-6 2xl:gap-10"
           ref={(el) => {
-            if (el && !el.getAttribute('data-passive')) {
-              el.addEventListener('touchstart', () => {}, { passive: true });
-              el.addEventListener('touchmove', () => {}, { passive: true });
-              el.setAttribute('data-passive', 'true');
+            if (el && !el.getAttribute("data-passive")) {
+              el.addEventListener("touchstart", () => {}, { passive: true });
+              el.addEventListener("touchmove", () => {}, { passive: true });
+              el.setAttribute("data-passive", "true");
             }
           }}
         >
@@ -120,7 +120,10 @@ export function Testimonials() {
                   &ldquo;{t.msg}&rdquo;
                 </div>
               </div>
-              <div className="mt-4 flex justify-end gap-0.5 pointer-events-none" style={{ color: "var(--gold)" }}>
+              <div
+                className="mt-4 flex justify-end gap-0.5 pointer-events-none"
+                style={{ color: "var(--gold)" }}
+              >
                 {[...Array(5)].map((_, j) => (
                   <Star key={j} className="h-3 w-3 shrink-0 fill-current" />
                 ))}

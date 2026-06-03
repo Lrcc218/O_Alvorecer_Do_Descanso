@@ -13,9 +13,12 @@ export function Footer() {
     <footer className="relative bg-[#F7F3E9] ">
       {/* Linha inserida exatamente ACIMA do card final (Garantia) */}
       <LuxuryDivider color="var(--gold)" opacity={0.5} className="absolute top-0 w-full" />
-      
+
       {/* ===== GARANTIA COMPLETA ===== */}
-      <section id="garantia" className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40">
+      <section
+        id="garantia"
+        className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40"
+      >
         <div className="mx-auto max-w-3xl rounded-3xl p-8 text-center sm:p-14 border border-white/60 bg-white/30 backdrop-blur-lg shadow-[0_12px_40px_0_rgba(10,17,40,0.04)]   [backface-visibility:hidden]">
           <div
             className="mx-auto mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full"
@@ -24,12 +27,12 @@ export function Footer() {
             <ShieldCheck className="h-7 w-7 text-gold-foreground" />
           </div>
           <h2 className="font-serif text-3.5xl sm:text-4.5xl font-semibold tracking-tight text-[#262626]">
-            Garantia de 7 noites tranquilas
+            Garantia de 30 noites tranquilas
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-[15px] sm:text-base leading-relaxed text-[#262626]/80">
-            Você experimenta o método por 7 dias. Se sentir que não é para você — por qualquer
-            motivo — devolvemos 100% do seu investimento. Sem perguntas, sem burocracia. O único
-            risco aqui é continuar mais uma noite sem dormir.
+            Você experimenta o método por 30 dias. Se sentir que não é para você — por qualquer
+            motivo —, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia. O risco é todo
+            nosso. aqui é continuar mais uma noite sem dormir.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3.5 text-xs sm:text-sm text-[#262626]/80 font-medium">
             <span className="inline-flex items-center gap-1.5">
@@ -97,7 +100,10 @@ export function Footer() {
       </div>
 
       {/* ===== SUPORTE INSTAGRAM & DIREITOS ===== */}
-      <div className="px-6 pt-16 text-cream sm:px-8 sm:pt-24 pb-[calc(max(4rem,env(safe-area-inset-bottom)+2rem))]" style={{ background: "#0A1128" }}>
+      <div
+        className="px-6 pt-16 text-cream sm:px-8 sm:pt-24 pb-[calc(max(4rem,env(safe-area-inset-bottom)+2rem))]"
+        style={{ background: "#0A1128" }}
+      >
         <div className="mx-auto max-w-2xl text-center">
           <div
             className="mx-auto mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full"

@@ -114,10 +114,10 @@ export function WatercolorBackground() {
     camera.position.z = 1;
 
     // Renderer setup (Optimized for Mobile/120Hz)
-    const renderer = new THREE.WebGLRenderer({ 
-      antialias: false, 
+    const renderer = new THREE.WebGLRenderer({
+      antialias: false,
       alpha: false,
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
     });
     // Cap pixel ratio agressivo para dispositivos hi-res
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));

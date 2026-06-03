@@ -68,7 +68,7 @@ export const trackPurchaseClick = (value: number = 67.9, currency: string = "BRL
       } else if (window.gtag) {
         window.gtag("event", "begin_checkout", eventParams);
       }
-      
+
       console.log("[Analytics] BeginCheckout event tracked");
 
       // Track Meta Pixel
@@ -89,7 +89,7 @@ export const trackNavClick = (destination: string) => {
   try {
     if (typeof window !== "undefined") {
       const params = { destination_name: destination };
-      
+
       // GA4 e GTM
       if (window.dataLayer) {
         window.dataLayer.push({ event: "nav_click", ...params });
@@ -114,7 +114,7 @@ export const trackVideoPlay = (videoId?: string) => {
   try {
     if (typeof window !== "undefined") {
       const params = { video_id: videoId || "vsl_principal", content_name: "VSL Principal" };
-      
+
       if (window.dataLayer) {
         window.dataLayer.push({ event: "video_play", ...params });
       } else if (window.gtag) {
@@ -145,7 +145,9 @@ export const grantConsent = (preferences: { analytics: boolean; marketing: boole
           functionality_storage: "granted", // Essential/Functional
           personalization_storage: preferences.analytics ? "granted" : "denied",
         });
-        console.log(`[Analytics] GA4 consent updated. Analytics: ${preferences.analytics}, Marketing: ${preferences.marketing}`);
+        console.log(
+          `[Analytics] GA4 consent updated. Analytics: ${preferences.analytics}, Marketing: ${preferences.marketing}`,
+        );
       }
 
       // Grant Meta Pixel consent

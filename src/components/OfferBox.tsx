@@ -16,20 +16,17 @@ export function OfferBox() {
       <div className="relative mx-auto w-full max-w-4xl lg:max-w-none 2xl:max-w-screen-2xl z-10">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-20">
-          <p
-            className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-[#D4AF37]"
-          >
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-[#D4AF37]">
             Acesso Especial Sem Riscos
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] tracking-tight leading-tight text-[#262626] font-light">
             Inicie a Restauração
             <br />
-            <span className="italic font-normal text-[#D4AF37]">
-              do Seu Sono Hoje.
-            </span>
+            <span className="italic font-normal text-[#D4AF37]">do Seu Sono Hoje.</span>
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-[15px] sm:text-base leading-relaxed text-[#262626]/70 font-sans font-light">
-            Tenha acesso permanente à metodologia clínica. Sem pagamentos recorrentes. Sem pegadinhas.
+            Tenha acesso permanente à metodologia clínica. Sem pagamentos recorrentes. Sem
+            pegadinhas.
           </p>
         </div>
 
@@ -54,7 +51,8 @@ export function OfferBox() {
                 Plano de Acesso Vitalício
               </h3>
               <p className="text-[14px] leading-relaxed text-[#262626]/70 font-sans font-light mb-6">
-                Inclui o curso base do Alvorecer do Descanso, cronogramas de transição biológica, guias anticólicas adicionais e todas as atualizações futuras sem custo.
+                Inclui o curso base do Alvorecer do Descanso, cronogramas de transição biológica,
+                guias anticólicas adicionais e todas as atualizações futuras sem custo.
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-3.5 text-xs text-[#262626]/80 font-sans font-medium">
@@ -88,7 +86,7 @@ export function OfferBox() {
                   >
                     <polyline points="20 6 9 17l-5-5" />
                   </svg>
-                  Garantia de 7 dias
+                  Garantia de 30 dias
                 </span>
               </div>
             </div>
@@ -98,10 +96,10 @@ export function OfferBox() {
               <span className="text-xs uppercase tracking-[0.2em] text-[#262626]/70 font-bold mb-1.5">
                 Valor Total de Adesão
               </span>
-              <p className="text-xs text-[#262626]/70 line-through mb-1 font-sans">De R$ 197,00 por</p>
-              <p
-                className="font-serif text-4xl sm:text-5xl font-bold leading-none mb-3 text-[#D4AF37]"
-              >
+              <p className="text-xs text-[#262626]/70 line-through mb-1 font-sans">
+                De R$ 197,00 por
+              </p>
+              <p className="font-serif text-4xl sm:text-5xl font-bold leading-none mb-3 text-[#D4AF37]">
                 R$ 67,90
               </p>
               <p className="text-[13px] leading-relaxed text-[#262626]/80 text-center font-sans mb-6">

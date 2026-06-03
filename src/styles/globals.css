@@ -1,26 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
 
 /* ── THEME TOKENS (Tailwind v4 inline theme) ── */
 @theme inline {
   --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans:  "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
 
-  --color-gold:        var(--gold);
-  --color-terracotta:  var(--terracotta);
-  --color-night:       var(--night);
-  --color-cream:       var(--cream);
-  --color-charcoal:    var(--charcoal);
+  --color-gold: var(--gold);
+  --color-terracotta: var(--terracotta);
+  --color-night: var(--night);
+  --color-cream: var(--cream);
+  --color-charcoal: var(--charcoal);
 
-  --color-background:  var(--background);
-  --color-foreground:  var(--foreground);
-  --color-muted:       var(--muted);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-  --color-border:      var(--border);
-  --color-input:       var(--input);
-  --color-ring:        var(--ring);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
   --color-gold-foreground: var(--gold-foreground);
-  --color-night-deep:  var(--night-deep);
+  --color-night-deep: var(--night-deep);
 
   --animate-pulse-cta: pulse-cta 2.5s infinite ease-in-out;
 }
@@ -30,44 +30,62 @@
   --radius: 0.875rem;
 
   /* Core Palette Original Claro — REVERTIDO */
-  --background:  #F7F3E9;
-  --foreground:  #262626;
-  --charcoal:    #262626;
-  --night:       #0A1128;
-  --night-deep:  #050814;
-  --cream:       #F7F3E9;
-  --terracotta:  #C26D4D;
-  --gold:        #D4AF37;
+  --background: #f7f3e9;
+  --foreground: #262626;
+  --charcoal: #262626;
+  --night: #0a1128;
+  --night-deep: #050814;
+  --cream: #f7f3e9;
+  --terracotta: #c26d4d;
+  --gold: #d4af37;
   --gold-foreground: #262626;
 
   /* UI */
-  --muted:            #FAF5E6;
+  --muted: #faf5e6;
   --muted-foreground: #737373;
-  --border:           rgba(38, 38, 38, 0.1);
-  --input:            rgba(38, 38, 38, 0.1);
-  --ring:             #C26D4D;
+  --border: rgba(38, 38, 38, 0.1);
+  --input: rgba(38, 38, 38, 0.1);
+  --ring: #c26d4d;
 
   /* Gradients */
-  --gradient-night:      linear-gradient(180deg, #0A1128 0%, #050814 100%);
-  --gradient-gold:       linear-gradient(135deg, #D4AF37 0%, #B8972D 100%);
-  --gradient-terracotta: linear-gradient(135deg, #C26D4D 0%, #A6573B 100%);
+  --gradient-night: linear-gradient(180deg, #0a1128 0%, #050814 100%);
+  --gradient-gold: linear-gradient(135deg, #d4af37 0%, #b8972d 100%);
+  --gradient-terracotta: linear-gradient(135deg, #c26d4d 0%, #a6573b 100%);
 
   /* Shadows */
-  --shadow-gold:       0 10px 30px -10px rgba(212, 175, 55, 0.3);
+  --shadow-gold: 0 10px 30px -10px rgba(212, 175, 55, 0.3);
   --shadow-terracotta: 0 12px 28px -10px rgba(194, 109, 77, 0.3);
-  --shadow-soft:       0 20px 50px -25px rgba(38, 38, 38, 0.1);
+  --shadow-soft: 0 20px 50px -25px rgba(38, 38, 38, 0.1);
 }
 
 /* ── KEYFRAMES ── */
 @keyframes pulse-cta {
-  0%   { transform: scale(1);    box-shadow: var(--shadow-terracotta); }
-  50%  { transform: scale(1.03); box-shadow: 0 20px 40px -10px rgba(194,109,77,0.5); }
-  100% { transform: scale(1);    box-shadow: var(--shadow-terracotta); }
+  0% {
+    transform: scale(1);
+    box-shadow: var(--shadow-terracotta);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 20px 40px -10px rgba(194, 109, 77, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: var(--shadow-terracotta);
+  }
 }
 
 @keyframes glow-pulse {
-  0%, 100% { box-shadow: 0 0 20px rgba(194,109,77,0.2), 0 12px 28px -10px rgba(194,109,77,0.3); }
-  50%       { box-shadow: 0 0 35px rgba(194,109,77,0.4), 0 20px 40px -10px rgba(194,109,77,0.5); }
+  0%,
+  100% {
+    box-shadow:
+      0 0 20px rgba(194, 109, 77, 0.2),
+      0 12px 28px -10px rgba(194, 109, 77, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 35px rgba(194, 109, 77, 0.4),
+      0 20px 40px -10px rgba(194, 109, 77, 0.5);
+  }
 }
 
 /* ── BASE ── */
@@ -79,12 +97,23 @@
     overscroll-behavior-y: none;
     -webkit-tap-highlight-color: transparent;
   }
-  * { border-color: var(--border); }
-  a, button, [role="button"], input, textarea, select, label { 
+  * {
+    border-color: var(--border);
+  }
+  a,
+  button,
+  [role="button"],
+  input,
+  textarea,
+  select,
+  label {
     cursor: pointer;
     touch-action: manipulation;
   }
-  h1, h2, h3, .font-serif {
+  h1,
+  h2,
+  h3,
+  .font-serif {
     font-family: var(--font-serif);
     letter-spacing: -0.01em;
   }
@@ -102,48 +131,60 @@ input[type="range"].circadian-slider {
 }
 input[type="range"].circadian-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 28px; height: 28px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--gradient-gold);
-  box-shadow: 0 4px 16px -4px rgba(212,175,55,0.4);
-  border: 3px solid #FDFBF7;
+  box-shadow: 0 4px 16px -4px rgba(212, 175, 55, 0.4);
+  border: 3px solid #fdfbf7;
   cursor: grab;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 input[type="range"].circadian-slider::-webkit-slider-thumb:hover {
   transform: scale(1.15);
-  box-shadow: 0 6px 24px -4px rgba(212,175,55,0.6);
+  box-shadow: 0 6px 24px -4px rgba(212, 175, 55, 0.6);
 }
 input[type="range"].circadian-slider::-moz-range-thumb {
-  width: 28px; height: 28px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: var(--gradient-gold);
-  border: 3px solid #FDFBF7;
+  border: 3px solid #fdfbf7;
   cursor: grab;
 }
 
 /* ── EEG WAVE TRANSITION ── */
-.eeg-wave-path { transition: d 0.8s cubic-bezier(0.4,0,0.2,1); }
+.eeg-wave-path {
+  transition: d 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 /* ── PHASE TAB PILLS (SleepPhasesVisualizer) ── */
-.phase-tab { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+.phase-tab {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
 .phase-tab[data-active="true"] {
   background: var(--gradient-terracotta);
-  color: #FDFBF7;
+  color: #fdfbf7;
   box-shadow: 0 8px 24px -8px rgba(194, 109, 77, 0.4);
 }
 
 /* ── AWAKENING PILL (CircadianBlueprintTool) ── */
-.awakening-pill { transition: all 0.25s ease; }
+.awakening-pill {
+  transition: all 0.25s ease;
+}
 .awakening-pill[data-selected="true"] {
   background: var(--gradient-terracotta);
-  color: #FDFBF7;
+  color: #fdfbf7;
   border-color: transparent;
   box-shadow: 0 6px 20px -6px rgba(194, 109, 77, 0.4);
 }
 
 /* ── CTA GLOW ── */
-.cta-glow:hover { animation: glow-pulse 2s infinite ease-in-out; }
+.cta-glow:hover {
+  animation: glow-pulse 2s infinite ease-in-out;
+}
 
 /* ── ULTRA WIDE SCREEN ADAPTATION (43" displays etc) ── */
 @media (min-width: 1536px) {

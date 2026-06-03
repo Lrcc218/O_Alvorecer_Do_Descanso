@@ -31,7 +31,7 @@ const CARDS: CardData[] = [
       "2-3 Horas de Conteúdo em Vídeo Objetivo",
       "Manual Compacto Completo (Acesso Móvel)",
       "Anexos das Ferramentas para Impressão",
-      "Garantia Incondicional de 7 Dias",
+      "Garantia Incondicional de 30 Dias",
     ],
   },
   {
@@ -55,17 +55,13 @@ export function ConversionStack() {
       <div className="relative mx-auto w-full max-w-4xl lg:max-w-none 2xl:max-w-screen-2xl z-10">
         {/* Section Header */}
         <div className="text-center mb-20 lg:mb-24">
-          <p
-            className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-[#D4AF37]"
-          >
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-[#D4AF37]">
             A Entrega Completa
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] tracking-tight leading-tight text-[#262626] font-light">
             Tudo o que você vai receber
             <br />
-            <span className="italic font-normal text-[#D4AF37]">
-              ao se juntar a nós hoje.
-            </span>
+            <span className="italic font-normal text-[#D4AF37]">ao se juntar a nós hoje.</span>
           </h2>
         </div>
 
@@ -83,14 +79,10 @@ export function ConversionStack() {
               {/* Card top details */}
               <div>
                 <div className="flex items-center justify-between mb-8 pb-6 border-b border-[#262626]/10">
-                  <p
-                    className="text-[10px] font-bold uppercase tracking-[0.25em] font-sans text-[#D4AF37]"
-                  >
+                  <p className="text-[10px] font-bold uppercase tracking-[0.25em] font-sans text-[#D4AF37]">
                     {card.tag}
                   </p>
-                  <span
-                    className="font-serif text-3xl font-light text-[#D4AF37]/50"
-                  >
+                  <span className="font-serif text-3xl font-light text-[#D4AF37]/50">
                     {card.number}
                   </span>
                 </div>
@@ -98,11 +90,7 @@ export function ConversionStack() {
                 <h3 className="font-serif text-2xl sm:text-3xl text-[#262626] font-semibold mb-4 leading-snug">
                   {card.title}{" "}
                   {card.italicTitle && (
-                    <span
-                      className="italic font-normal text-[#D4AF37]"
-                    >
-                      {card.italicTitle}
-                    </span>
+                    <span className="italic font-normal text-[#D4AF37]">{card.italicTitle}</span>
                   )}
                 </h3>
 
@@ -119,7 +107,9 @@ export function ConversionStack() {
                       className="mt-1 flex h-4 w-4 items-center justify-center rounded-full shrink-0"
                       style={{
                         background:
-                          card.number === "02" ? "linear-gradient(135deg, #D4AF37, #B8972D)" : "linear-gradient(135deg, #C26D4D, #A6573B)",
+                          card.number === "02"
+                            ? "linear-gradient(135deg, #D4AF37, #B8972D)"
+                            : "linear-gradient(135deg, #C26D4D, #A6573B)",
                       }}
                     >
                       <svg

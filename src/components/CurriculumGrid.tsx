@@ -27,9 +27,9 @@ const MODULES: ModuleData[] = [
     desc: "Por que o sono é um desafio biológico?",
     details: [
       "Mapeamento neurobiológico entre Cortisol e Melatonina — o duelo hormonal que governa o sono",
-      "A influência prática de sinalizadores ambientais (\"Zeitgebers\") no relógio circadiano",
+      'A influência prática de sinalizadores ambientais ("Zeitgebers") no relógio circadiano',
       "Diretrizes para exposição solar natural e higiene visual (filtro de luz azul)",
-      "Intervenção técnica para a temida \"Hora da Bruxa\"",
+      'Intervenção técnica para a temida "Hora da Bruxa"',
     ],
   },
   {
@@ -39,8 +39,8 @@ const MODULES: ModuleData[] = [
     details: [
       "A matemática das sonecas e a regulação socioemocional da criança",
       "Lógica das janelas biológicas de sono — funcionando como autonomia de bateria",
-      "O conceito central: \"Sono gera Sono\"",
-      "Identificação precisa da \"Zona Verde\" (sinais precoces) e \"Zona Vermelha\" (sinais tardios)",
+      'O conceito central: "Sono gera Sono"',
+      'Identificação precisa da "Zona Verde" (sinais precoces) e "Zona Vermelha" (sinais tardios)',
     ],
   },
   {
@@ -48,9 +48,9 @@ const MODULES: ModuleData[] = [
     title: "MÓDULO 3: O Método na Prática",
     desc: "Do Caos à Calmaria",
     details: [
-      "\"O Protocolo do Banho à Cama\" — banho morno, massagem tática, ambiente sensorial reduzido",
-      "O Ritual das 3 Noites — ciência da antecipação e desenvolvimento do \"Cérebro Esponja\"",
-      "A técnica de transição gradual de autonomia \"Drowsy but Awake\" (sonolento, mas acordado)",
+      '"O Protocolo do Banho à Cama" — banho morno, massagem tática, ambiente sensorial reduzido',
+      'O Ritual das 3 Noites — ciência da antecipação e desenvolvimento do "Cérebro Esponja"',
+      'A técnica de transição gradual de autonomia "Drowsy but Awake" (sonolento, mas acordado)',
     ],
   },
   {
@@ -59,8 +59,8 @@ const MODULES: ModuleData[] = [
     desc: "Manejo do esgotamento materno",
     details: [
       "Validação do Burnout materno e reconquista da energia emocional",
-      "Uso estratégico do \"Response Shaping\" para moldagem de respostas",
-      "\"Pausa Estratégica\" — a ciência por trás de pausar antes de reagir",
+      'Uso estratégico do "Response Shaping" para moldagem de respostas',
+      '"Pausa Estratégica" — a ciência por trás de pausar antes de reagir',
       "Divisão de turnos noturnos táticos entre cuidadores",
     ],
   },
@@ -80,10 +80,10 @@ const EXTRA_MODULES: AccordionData[] = [
     title: "PARTE 5: Resolução de Problemas",
     desc: "FAQ: Guia de Resolução Estratégica",
     details: [
-      "\"Soneca de Resgate\" — protocolo emergencial para recuperação",
-      "\"Bedtime Antecipado\" — ajuste fino do horário de deitar",
-      "\"Ponte de Calmaria\" — técnica de transição emocional",
-      "\"Regra dos 80/20\" — priorização inteligente do que realmente importa",
+      '"Soneca de Resgate" — protocolo emergencial para recuperação',
+      '"Bedtime Antecipado" — ajuste fino do horário de deitar',
+      '"Ponte de Calmaria" — técnica de transição emocional',
+      '"Regra dos 80/20" — priorização inteligente do que realmente importa',
     ],
     accentColor: "var(--terracotta)",
   },
@@ -123,10 +123,7 @@ export function CurriculumGrid() {
           <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl tracking-tight leading-tight text-[#262626] font-light">
             O Alvorecer do Descanso
             <br />
-            <span
-              className="italic font-normal"
-              style={{ color: "var(--terracotta)" }}
-            >
+            <span className="italic font-normal" style={{ color: "var(--terracotta)" }}>
               — conteúdo completo.
             </span>
           </h2>

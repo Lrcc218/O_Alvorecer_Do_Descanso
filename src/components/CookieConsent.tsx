@@ -30,7 +30,7 @@ export function CookieConsent() {
     } catch (e) {
       console.warn("Error parsing cookie preferences", e);
     }
-    
+
     // Mostra o banner se não houver consentimento válido
     setShowBanner(true);
   }, []);
@@ -43,7 +43,7 @@ export function CookieConsent() {
       analiticos: analytics,
       marketing: marketing,
     };
-    
+
     localStorage.setItem(COOKIE_NAME, JSON.stringify(data));
     grantConsent({ analytics, marketing });
     setShowBanner(false);
@@ -60,14 +60,22 @@ export function CookieConsent() {
           className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-5"
         >
           <div className="mx-auto max-w-4xl rounded-2xl border border-white/10 bg-[#0A1128]/95 backdrop-blur-md p-4 sm:p-5 shadow-2xl flex flex-col gap-4">
-            
             {!showPreferences ? (
               <div className="flex flex-col lg:flex-row items-center justify-between gap-5">
                 <div className="text-left flex-1">
-                  <h3 className="text-base font-serif text-[#D4AF37] mb-1 font-semibold">Sua Privacidade</h3>
+                  <h3 className="text-base font-serif text-[#D4AF37] mb-1 font-semibold">
+                    Sua Privacidade
+                  </h3>
                   <p className="text-xs sm:text-sm text-[#FCEFD2]/90 font-sans leading-snug">
-                    Usamos cookies para melhorar sua experiência e analisar tráfego, respeitando a <strong>LGPD</strong>.{" "}
-                    Leia nossa <Link href="/politica-de-privacidade" className="underline text-[#D4AF37] hover:text-[#FCEFD2]">Política de Privacidade</Link>.
+                    Usamos cookies para melhorar sua experiência e analisar tráfego, respeitando a{" "}
+                    <strong>LGPD</strong>. Leia nossa{" "}
+                    <Link
+                      href="/politica-de-privacidade"
+                      className="underline text-[#D4AF37] hover:text-[#FCEFD2]"
+                    >
+                      Política de Privacidade
+                    </Link>
+                    .
                   </p>
                 </div>
                 <div className="flex w-full lg:w-auto flex-col sm:flex-row gap-2 shrink-0">
@@ -94,12 +102,18 @@ export function CookieConsent() {
               </div>
             ) : (
               <div className="flex flex-col gap-4 animate-in fade-in duration-300">
-                <h3 className="text-base font-serif text-[#D4AF37] font-semibold border-b border-white/10 pb-2">Preferências de Cookies</h3>
-                
+                <h3 className="text-base font-serif text-[#D4AF37] font-semibold border-b border-white/10 pb-2">
+                  Preferências de Cookies
+                </h3>
+
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">Estritamente Necessários</p>
-                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">Funcionamento básico do site. Não podem ser desativados.</p>
+                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">
+                      Estritamente Necessários
+                    </p>
+                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">
+                      Funcionamento básico do site. Não podem ser desativados.
+                    </p>
                   </div>
                   <div className="w-10 h-5 bg-green-500/50 rounded-full relative opacity-50 cursor-not-allowed">
                     <div className="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
@@ -108,27 +122,39 @@ export function CookieConsent() {
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">Estatísticas e Analíticos</p>
-                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">Ajudam a melhorar o site analisando o tráfego.</p>
+                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">
+                      Estatísticas e Analíticos
+                    </p>
+                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">
+                      Ajudam a melhorar o site analisando o tráfego.
+                    </p>
                   </div>
-                  <button 
-                    onClick={() => setPrefs({...prefs, analytics: !prefs.analytics})}
-                    className={`w-10 h-5 rounded-full relative transition-colors ${prefs.analytics ? 'bg-green-500' : 'bg-gray-600'}`}
+                  <button
+                    onClick={() => setPrefs({ ...prefs, analytics: !prefs.analytics })}
+                    className={`w-10 h-5 rounded-full relative transition-colors ${prefs.analytics ? "bg-green-500" : "bg-gray-600"}`}
                   >
-                    <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${prefs.analytics ? 'right-1' : 'left-1'}`}></div>
+                    <div
+                      className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${prefs.analytics ? "right-1" : "left-1"}`}
+                    ></div>
                   </button>
                 </div>
 
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">Marketing e Publicidade</p>
-                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">Para fornecer anúncios relevantes em outras redes.</p>
+                    <p className="text-[#FCEFD2] font-semibold text-xs sm:text-sm">
+                      Marketing e Publicidade
+                    </p>
+                    <p className="text-[#FCEFD2]/60 text-[10px] sm:text-xs mt-0.5">
+                      Para fornecer anúncios relevantes em outras redes.
+                    </p>
                   </div>
-                  <button 
-                    onClick={() => setPrefs({...prefs, marketing: !prefs.marketing})}
-                    className={`w-10 h-5 rounded-full relative transition-colors ${prefs.marketing ? 'bg-green-500' : 'bg-gray-600'}`}
+                  <button
+                    onClick={() => setPrefs({ ...prefs, marketing: !prefs.marketing })}
+                    className={`w-10 h-5 rounded-full relative transition-colors ${prefs.marketing ? "bg-green-500" : "bg-gray-600"}`}
                   >
-                    <div className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${prefs.marketing ? 'right-1' : 'left-1'}`}></div>
+                    <div
+                      className={`absolute top-1 w-3 h-3 bg-white rounded-full transition-all ${prefs.marketing ? "right-1" : "left-1"}`}
+                    ></div>
                   </button>
                 </div>
 

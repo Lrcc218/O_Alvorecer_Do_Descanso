@@ -88,17 +88,13 @@ export function CircadianBlueprintTool() {
       <div className="relative mx-auto w-full max-w-7xl lg:max-w-none 2xl:max-w-screen-2xl z-10">
         {/* Section Header */}
         <div className="text-center mb-16 lg:mb-24">
-          <p
-            className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-amber-500"
-          >
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.3em] font-sans text-amber-500">
             Diagnóstico Circadiano
           </p>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-[3.5rem] tracking-tight leading-tight text-white font-light">
             Índice de Blueprint
             <br />
-            <span className="italic font-normal text-amber-500">
-              Circadiano.
-            </span>
+            <span className="italic font-normal text-amber-500">Circadiano.</span>
           </h2>
         </div>
 
@@ -108,13 +104,11 @@ export function CircadianBlueprintTool() {
           <div className="lg:col-span-5 flex flex-col gap-8">
             <div>
               <h3 className="font-serif text-2xl sm:text-3xl text-slate-100 font-light leading-snug mb-4">
-                Avalie a Curva Circadiana{" "}
-                <em className="italic text-amber-500">
-                  do Seu Filho
-                </em>
+                Avalie a Curva Circadiana <em className="italic text-amber-500">do Seu Filho</em>
               </h3>
               <p className="text-[15px] sm:text-base leading-relaxed text-slate-400 font-sans font-light">
-                Calcule o alinhamento entre os ciclos ultradianos do bebê e a janela ideal de secreção hormonal baseada na idade biológica.
+                Calcule o alinhamento entre os ciclos ultradianos do bebê e a janela ideal de
+                secreção hormonal baseada na idade biológica.
               </p>
             </div>
 
@@ -123,7 +117,9 @@ export function CircadianBlueprintTool() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 font-sans mb-1">
                   Parâmetro Clínico
                 </p>
-                <p className="font-serif text-lg text-slate-200 font-medium mb-1">Sincronia Hormonal</p>
+                <p className="font-serif text-lg text-slate-200 font-medium mb-1">
+                  Sincronia Hormonal
+                </p>
                 <p className="text-[13px] text-slate-400 font-sans font-light">
                   Relação melatonina-cortisol ajustada por faixa etária
                 </p>
@@ -132,7 +128,9 @@ export function CircadianBlueprintTool() {
                 <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-slate-500 font-sans mb-1">
                   Parâmetro Clínico
                 </p>
-                <p className="font-serif text-lg text-slate-200 font-medium mb-1">Espaçamento Ultradiano</p>
+                <p className="font-serif text-lg text-slate-200 font-medium mb-1">
+                  Espaçamento Ultradiano
+                </p>
                 <p className="text-[13px] text-slate-400 font-sans font-light">
                   Intervalo entre ciclos NREM profundos durante a noite
                 </p>

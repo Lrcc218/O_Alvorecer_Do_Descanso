@@ -19,8 +19,14 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden text-[#F5F5F7] min-h-[100dvh] flex flex-col justify-between bg-transparent z-10 w-full">
       {/* ── BACKGROUND DECORATIVE ELEMENTS: Deep Navy and Gold/Terracotta glows ── */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] -mr-40 -mt-20 pointer-events-none" style={{ backgroundColor: "rgba(212, 175, 55, 0.05)" }}></div>
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none" style={{ backgroundColor: "rgba(194, 109, 77, 0.05)" }}></div>
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full blur-[120px] -mr-40 -mt-20 pointer-events-none"
+        style={{ backgroundColor: "rgba(212, 175, 55, 0.05)" }}
+      ></div>
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-[100px] -ml-20 -mb-20 pointer-events-none"
+        style={{ backgroundColor: "rgba(194, 109, 77, 0.05)" }}
+      ></div>
 
       <div
         className="absolute inset-0 -z-10 pointer-events-none"
@@ -42,18 +48,62 @@ export function Hero() {
       {/* ── NAVBAR ── */}
       <nav className="relative w-full max-w-7xl lg:max-w-none 2xl:max-w-screen-2xl mx-auto flex items-center justify-between px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-8 z-10">
         <div className="flex items-center space-x-3.5 text-[#F5F5F7]">
-          <div className="w-8 h-8 rounded-full blur-[1px] shadow-[0_0_15px_rgba(212,175,55,0.5)]" style={{ background: "var(--gradient-gold)" }}></div>
+          <div
+            className="w-8 h-8 rounded-full blur-[1px] shadow-[0_0_15px_rgba(212,175,55,0.5)]"
+            style={{ background: "var(--gradient-gold)" }}
+          ></div>
           <span className="text-xl sm:text-2xl font-light tracking-[0.25em] uppercase font-sans">
-            Alvorecer <span className="font-serif italic tracking-tight lowercase font-semibold" style={{ color: "var(--gold)" }}>do descanso</span>
+            Alvorecer{" "}
+            <span
+              className="font-serif italic tracking-tight lowercase font-semibold"
+              style={{ color: "var(--gold)" }}
+            >
+              do descanso
+            </span>
           </span>
         </div>
-        
+
         <div className="hidden lg:flex space-x-12 text-[10px] uppercase tracking-[0.2em] font-medium text-white/60 items-center">
-          <a href="#architecture" onClick={() => trackNavClick("neuroarquitetura")} className="hover:text-white transition-colors">Neuroarquitetura</a>
-          <a href="#assessment" onClick={() => trackNavClick("diagnostico")} className="hover:text-white transition-colors">Diagnóstico</a>
-          <a href="#curriculum" onClick={() => trackNavClick("o_programa")} className="hover:text-white transition-colors">O Programa</a>
-          <a href="#testimonials" onClick={() => trackNavClick("depoimentos")} className="hover:text-white transition-colors">Depoimentos</a>
-          <a href="#oferta" onClick={() => trackNavClick("area_do_aluno")} className="px-6 py-2 rounded-full border transition-all" style={{ backgroundColor: "rgba(212,175,55,0.1)", color: "var(--gold)", borderColor: "rgba(212,175,55,0.2)" }}>Área do Aluno</a>
+          <a
+            href="#architecture"
+            onClick={() => trackNavClick("neuroarquitetura")}
+            className="hover:text-white transition-colors"
+          >
+            Neuroarquitetura
+          </a>
+          <a
+            href="#assessment"
+            onClick={() => trackNavClick("diagnostico")}
+            className="hover:text-white transition-colors"
+          >
+            Diagnóstico
+          </a>
+          <a
+            href="#curriculum"
+            onClick={() => trackNavClick("o_programa")}
+            className="hover:text-white transition-colors"
+          >
+            O Programa
+          </a>
+          <a
+            href="#testimonials"
+            onClick={() => trackNavClick("depoimentos")}
+            className="hover:text-white transition-colors"
+          >
+            Depoimentos
+          </a>
+          <a
+            href="#oferta"
+            onClick={() => trackNavClick("area_do_aluno")}
+            className="px-6 py-2 rounded-full border transition-all"
+            style={{
+              backgroundColor: "rgba(212,175,55,0.1)",
+              color: "var(--gold)",
+              borderColor: "rgba(212,175,55,0.2)",
+            }}
+          >
+            Área do Aluno
+          </a>
         </div>
 
         <a
@@ -71,36 +121,50 @@ export function Hero() {
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 items-center">
           {/* LEFT COLUMN: Main copy */}
           <div className="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0">
-            <span className="mb-6 inline-block px-3 py-1 border text-[10px] uppercase tracking-[0.2em] rounded-sm font-semibold font-sans" style={{ borderColor: "rgba(194,109,77,0.3)", color: "var(--terracotta)", backgroundColor: "rgba(194,109,77,0.05)" }}>
+            <span
+              className="mb-6 inline-block px-3 py-1 border text-[10px] uppercase tracking-[0.2em] rounded-sm font-semibold font-sans"
+              style={{
+                borderColor: "rgba(194,109,77,0.3)",
+                color: "var(--terracotta)",
+                backgroundColor: "rgba(194,109,77,0.05)",
+              }}
+            >
               A Arte do Descanso Profundo
             </span>
 
             <h1 className="font-serif text-5xl sm:text-7xl lg:text-[4.2rem] xl:text-[5.2rem] 2xl:text-[5.8rem] tracking-tight leading-[1.1] text-white subpixel-antialiased [text-rendering:optimizeLegibility]">
               São três da manhã…
               <br />
-              <span className="italic font-light" style={{ color: "var(--gold)" }}>você não está errada</span>
+              <span className="italic font-light" style={{ color: "var(--gold)" }}>
+                você não está errada
+              </span>
               <br />e a culpa não é sua.
             </h1>
 
             <p className="mt-8 text-lg sm:text-xl font-light font-sans text-white/70 leading-relaxed max-w-xl lg:max-w-none">
-              O sono do seu bebê é uma arquitetura biológica delicada — e ela pode ser guiada com ciência, paciência e empatia. Sem choros prolongados. Sem culpa. Só descanso de verdade.
+              O sono do seu bebê é uma arquitetura biológica delicada — e ela pode ser guiada com
+              ciência, paciência e empatia. Sem choros prolongados. Sem culpa. Só descanso de
+              verdade.
             </p>
 
             {/* CTA block - inline under the left copy on desktop */}
-            <div className="mt-10 sm:mt-12 flex flex-col items-center lg:items-start gap-4 w-full">
+            <div className="mt-10 sm:mt-12 hidden lg:flex flex-col items-center lg:items-start gap-4 w-full">
               <a
                 href={CHECKOUT_URL}
                 onClick={handleCTAClick}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative inline-flex w-full sm:w-auto min-w-[280px] items-center justify-center gap-3 rounded-full px-10 py-5 2xl:py-4 2xl:px-16 text-sm uppercase tracking-widest font-bold text-white transition-all transform-gpu will-change-transform [backface-visibility:hidden] animate-pulse-cta hover:scale-[1.02]"
-                style={{ background: "var(--gradient-terracotta)", boxShadow: "var(--shadow-terracotta)" }}
+                style={{
+                  background: "var(--gradient-terracotta)",
+                  boxShadow: "var(--shadow-terracotta)",
+                }}
               >
                 <Sparkles className="h-5 w-5 shrink-0 text-white" />
                 <span className="leading-tight font-sans tracking-widest">Começar Jornada</span>
               </a>
               <p className="text-xs text-white/50 tracking-widest uppercase font-semibold font-sans mt-2">
-                Acesso imediato • Garantia de 7 dias
+                Acesso imediato • Garantia de 30 dias
               </p>
             </div>
           </div>
@@ -135,24 +199,68 @@ export function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Mobile CTA block - rendered below the grid */}
+        <div className="mt-12 flex lg:hidden flex-col items-center gap-4 w-full z-10">
+          <a
+            href={CHECKOUT_URL}
+            onClick={handleCTAClick}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex w-full sm:w-auto min-w-[280px] items-center justify-center gap-3 rounded-full px-10 py-5 text-sm uppercase tracking-widest font-bold text-white transition-all transform-gpu will-change-transform [backface-visibility:hidden] animate-pulse-cta hover:scale-[1.02]"
+            style={{
+              background: "var(--gradient-terracotta)",
+              boxShadow: "var(--shadow-terracotta)",
+            }}
+          >
+            <Sparkles className="h-5 w-5 shrink-0 text-white" />
+            <span className="leading-tight font-sans tracking-widest">Começar Jornada</span>
+          </a>
+          <p className="hidden md:block text-xs text-[#F5F5F7]/40 tracking-widest uppercase font-semibold font-sans mt-3">
+            Acesso imediato • Garantia de 30 dias
+          </p>
+        </div>
       </div>
 
-      {/* Decorative Star Particles */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        {[...Array(20)].map((_, i) => (
-          <span
-            key={i}
-            className="absolute rounded-full bg-white animate-pulse"
-            style={{
-              width: i % 3 === 0 ? "3px" : "1.5px",
-              height: i % 3 === 0 ? "3px" : "1.5px",
-              top: `${(i * 7) % 95}%`,
-              left: `${(i * 13) % 95}%`,
-              animationDelay: `${i * 0.2}s`,
-              animationDuration: `${2 + (i % 3)}s`,
-            }}
-          />
-        ))}
+      {/* Decorative Star Particles (Starry Dawn Simulation) */}
+      <div className="pointer-events-none absolute inset-0 z-0">
+        {[...Array(60)].map((_, i) => {
+          // Deterministic pseudo-randomness for SSR consistency
+          const isLarge = i % 8 === 0;
+          const isGold = i % 6 === 0;
+          const size = isLarge ? "3px" : "2px";
+
+          // GLSL-style pseudo-random deterministic hash to avoid parametric curves
+          const hashX = Math.sin(i * 78.233) * 43758.5453;
+          const randX = hashX - Math.floor(hashX);
+          const hashY = Math.sin(i * 12.9898) * 43758.5453;
+          const randY = hashY - Math.floor(hashY);
+          const hashD = Math.sin(i * 45.123) * 43758.5453;
+          const randD = hashD - Math.floor(hashD);
+
+          // Concentrando na parte superior (0 a 60%) com toFixed para evitar Hydration Mismatch (precisão Float Server x Client)
+          const top = `${(randY * 60).toFixed(2)}%`;
+          const left = `${(randX * 100).toFixed(2)}%`;
+
+          const delay = `${(randD * 5).toFixed(2)}s`;
+          const duration = `${(3 + randX * 4).toFixed(2)}s`;
+
+          return (
+            <span
+              key={i}
+              className={`absolute rounded-full animate-pulse ${isGold ? "bg-[#D4AF37] shadow-[0_0_8px_rgba(212,175,55,0.8)]" : "bg-white shadow-[0_0_5px_rgba(255,255,255,0.6)]"}`}
+              style={{
+                width: size,
+                height: size,
+                top,
+                left,
+                opacity: isLarge ? 1 : 0.6,
+                animationDelay: delay,
+                animationDuration: duration,
+              }}
+            />
+          );
+        })}
       </div>
 
       {/* ── WAVE DIVIDER (PROCEDURAL SVG) ── */}

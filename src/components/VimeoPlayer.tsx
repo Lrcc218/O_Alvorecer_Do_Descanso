@@ -25,7 +25,7 @@ export function VimeoPlayer({
     if (!containerRef.current || !videoId) return;
 
     // Default configuration for VSL (Video Sales Letter)
-    const options: any = {
+    const options: Record<string, string | number | boolean | undefined> = {
       id: videoId,
       width: "100%",
       autoplay: true,
@@ -68,7 +68,7 @@ export function VimeoPlayer({
       playerRef.current.setVolume(1).then(() => {
         setIsMuted(false);
         // Show controls after unmuting so user can pause/seek
-        // Note: SDK doesn't allow changing 'controls' dynamically easily, 
+        // Note: SDK doesn't allow changing 'controls' dynamically easily,
         // but we ensure they hear the sound.
       });
     }
@@ -76,20 +76,24 @@ export function VimeoPlayer({
 
   if (!videoId) {
     return (
-      <div className={`flex items-center justify-center bg-black/50 aspect-video rounded-2xl ${className}`}>
+      <div
+        className={`flex items-center justify-center bg-black/50 aspect-video rounded-2xl ${className}`}
+      >
         <p className="text-white/50 font-sans text-sm">Vimeo ID não configurado no .env.local</p>
       </div>
     );
   }
 
   return (
-    <div className={`relative w-full aspect-video rounded-2xl overflow-hidden bg-black ${className}`}>
+    <div
+      className={`relative w-full aspect-video rounded-2xl overflow-hidden bg-black ${className}`}
+    >
       {/* Vimeo Container */}
       <div ref={containerRef} className="absolute inset-0 w-full h-full" />
 
       {/* Unmute Overlay - Only shows if video is playing muted */}
       {isMuted && (
-        <div 
+        <div
           onClick={handleUnmute}
           className="absolute inset-0 z-10 flex items-center justify-center bg-black/20 cursor-pointer group"
         >

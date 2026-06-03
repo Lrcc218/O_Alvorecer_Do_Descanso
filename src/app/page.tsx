@@ -2,6 +2,7 @@ import { Hero } from "@/components/Hero";
 import { Pillars } from "@/components/Pillars";
 import { SalesLetter } from "@/components/SalesLetter";
 import { Testimonials } from "@/components/Testimonials";
+import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { Star } from "lucide-react";
@@ -44,7 +45,11 @@ export default function Home() {
             <div className="relative mx-auto max-w-3xl z-10 [contain:layout]">
               <div className="mb-4 inline-flex items-center gap-1.5 justify-center">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 shrink-0 fill-current" style={{ color: "var(--gold)" }} />
+                  <Star
+                    key={i}
+                    className="h-5 w-5 shrink-0 fill-current"
+                    style={{ color: "var(--gold)" }}
+                  />
                 ))}
               </div>
               <p
@@ -84,6 +89,12 @@ export default function Home() {
       <LuxuryDivider color="var(--terracotta)" className="z-20" opacity={0.3} />
 
       <Testimonials />
+
+      <div className="w-full py-8" style={{ backgroundColor: "#0A1128" }}>
+        <LuxuryDivider color="var(--gold)" className="z-20" opacity={0.35} />
+      </div>
+
+      <FAQ />
 
       <Footer />
     </main>
