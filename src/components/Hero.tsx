@@ -132,19 +132,16 @@ export function Hero() {
               A Arte do Descanso Profundo
             </span>
 
-            <h1 className="font-serif text-5xl sm:text-7xl lg:text-[4.2rem] xl:text-[5.2rem] 2xl:text-[5.8rem] tracking-tight leading-[1.1] text-white subpixel-antialiased [text-rendering:optimizeLegibility]">
-              São três da manhã…
-              <br />
+            <h1 className="font-serif text-4xl sm:text-6xl lg:text-[3.8rem] xl:text-[4.6rem] 2xl:text-[5.2rem] tracking-tight leading-[1.1] text-white subpixel-antialiased [text-rendering:optimizeLegibility]">
+              Seu bebê dormindo a noite toda em até{" "}
               <span className="italic font-light" style={{ color: "var(--gold)" }}>
-                você não está errada
+                7 dias
               </span>
-              <br />e a culpa não é sua.
+              <br />sem choro, sem culpa.
             </h1>
 
             <p className="mt-8 text-lg sm:text-xl font-light font-sans text-white/70 leading-relaxed max-w-xl lg:max-w-none">
-              O sono do seu bebê é uma arquitetura biológica delicada — e ela pode ser guiada com
-              ciência, paciência e empatia. Sem choros prolongados. Sem culpa. Só descanso de
-              verdade.
+              Esqueça os métodos cruéis de "deixar chorar". Descubra como guiar o relógio biológico do seu filho com ciência, paciência e empatia. Porque você merece voltar a descansar de verdade.
             </p>
 
             {/* CTA block - inline under the left copy on desktop */}

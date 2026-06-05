@@ -18,6 +18,8 @@ interface CardData {
   italicTitle?: string;
   text: string;
   list: string[];
+  originalValue?: string;
+  todayValue?: string;
 }
 
 const CARDS: CardData[] = [
@@ -28,24 +30,41 @@ const CARDS: CardData[] = [
     italicTitle: "Método Principal",
     text: "O treinamento definitivo em vídeo e texto para restaurar as janelas circidianas e acalmar as sinapses de forma integral. Acesso perpétuo para consultar sempre que houver saltos de crescimento.",
     list: [
-      "2-3 Horas de Conteúdo em Vídeo Objetivo",
-      "Manual Compacto Completo (Acesso Móvel)",
-      "Anexos das Ferramentas para Impressão",
-      "Garantia Incondicional de 30 Dias",
+      "2-3 Horas de Conteúdo em Vídeo",
+      "Manual Compacto (Acesso Móvel)",
+      "Anexos para Impressão",
+      "Garantia de 30 Dias",
     ],
+    originalValue: "R$ 197,00",
+    todayValue: "Incluso",
   },
   {
     number: "02",
-    tag: "Bônus Exclusivo Inaugural",
+    tag: "Bônus Exclusivo #1",
     title: "Protocolo Sono & Alívio —",
-    italicTitle: "O Guia Anticólicas",
-    text: "Uma imersão técnica sobre o Eixo Intestino-Cérebro. Acabe com o maior pesadelo das mães com técnicas físicas de Kangaroo Care que neutralizam as crises em minutos.",
+    italicTitle: "Guia Anticólicas",
+    text: "Uma imersão técnica sobre o Eixo Intestino-Cérebro. Acabe com o maior pesadelo das mães com técnicas físicas que neutralizam as crises em minutos.",
     list: [
-      "Explicação Científica Sem Jargões",
-      "Passo a Passo Fisioterapêutico Ilustrado",
+      "Fisioterapia Ilustrada",
       "Exemplos Reais Gravados",
-      "Perfeito para os primeiros 4 meses de vida",
+      "Ideal para os primeiros 4 meses",
     ],
+    originalValue: "R$ 67,00",
+    todayValue: "Grátis",
+  },
+  {
+    number: "03",
+    tag: "Bônus Exclusivo #2",
+    title: "Checklist Prático —",
+    italicTitle: "O Ambiente Ideal",
+    text: "O mapa exato para configurar o quarto do bebê, garantindo a produção máxima de melatonina e reduzindo os micro-despertares noturnos drasticamente.",
+    list: [
+      "Guia de Exposição de Luz",
+      "Configuração de Ruído Branco",
+      "Controle Térmico",
+    ],
+    originalValue: "R$ 37,00",
+    todayValue: "Grátis",
   },
 ];
 
@@ -66,7 +85,7 @@ export function ConversionStack() {
         </div>
 
         {/* Column Stack with premium responsive grids up to 2xl */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 max-w-6xl lg:max-w-none mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-8 xl:gap-10 max-w-6xl lg:max-w-none mx-auto">
           {CARDS.map((card, i) => (
             <motion.div
               key={i}
@@ -94,9 +113,20 @@ export function ConversionStack() {
                   )}
                 </h3>
 
-                <p className="text-[15px] sm:text-base leading-relaxed text-[#262626]/70 font-sans font-light mb-8">
+                <p className="text-[15px] sm:text-base leading-relaxed text-[#262626]/70 font-sans font-light mb-8 flex-1">
                   {card.text}
                 </p>
+
+                {card.originalValue && card.todayValue && (
+                  <div className="mb-6 inline-flex items-center gap-3 bg-emerald-50/50 border border-emerald-100 px-4 py-2.5 rounded-xl w-fit">
+                    <span className="text-[11px] font-sans font-semibold text-[#262626]/40 line-through">
+                      Valor: {card.originalValue}
+                    </span>
+                    <span className="text-[13px] font-sans font-bold text-emerald-600 uppercase tracking-widest">
+                      Hoje: {card.todayValue}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Card Checklist */}
@@ -107,9 +137,9 @@ export function ConversionStack() {
                       className="mt-1 flex h-4 w-4 items-center justify-center rounded-full shrink-0"
                       style={{
                         background:
-                          card.number === "02"
-                            ? "linear-gradient(135deg, #D4AF37, #B8972D)"
-                            : "linear-gradient(135deg, #C26D4D, #A6573B)",
+                          card.number === "01"
+                            ? "linear-gradient(135deg, #C26D4D, #A6573B)"
+                            : "linear-gradient(135deg, #D4AF37, #B8972D)",
                       }}
                     >
                       <svg

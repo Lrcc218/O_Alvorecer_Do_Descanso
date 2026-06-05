@@ -8,6 +8,8 @@ import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { Star } from "lucide-react";
 import { WatercolorBackground } from "@/components/WatercolorBackground";
 import { LuxuryDivider } from "@/components/LuxuryDivider";
+import { Authority } from "@/components/Authority";
+import { WhoIsItFor } from "@/components/WhoIsItFor";
 
 export default function Home() {
   return (
@@ -75,6 +77,10 @@ export default function Home() {
 
       <LuxuryDivider color="var(--terracotta)" className="z-20" opacity={0.3} />
 
+      <Authority />
+
+      <LuxuryDivider color="var(--gold)" className="z-20" opacity={0.3} />
+
       {/* SalesLetter contains Sections 1-7 inline:
           1. Hero Manifesto (copy only — video is in Hero.tsx above)
           2. Asymmetric Grid (Sales Copy + Sticky Sidebar)
@@ -89,6 +95,10 @@ export default function Home() {
       <LuxuryDivider color="var(--terracotta)" className="z-20" opacity={0.3} />
 
       <Testimonials />
+
+      <LuxuryDivider color="var(--terracotta)" className="z-20" opacity={0.3} />
+
+      <WhoIsItFor />
 
       <div className="w-full py-8" style={{ backgroundColor: "#0A1128" }}>
         <LuxuryDivider color="var(--gold)" className="z-20" opacity={0.35} />
