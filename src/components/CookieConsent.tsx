@@ -32,6 +32,7 @@ export function CookieConsent() {
     }
 
     // Mostra o banner se não houver consentimento válido
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setShowBanner(true);
   }, []);
 

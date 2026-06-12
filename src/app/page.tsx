@@ -12,8 +12,71 @@ import { Authority } from "@/components/Authority";
 import { WhoIsItFor } from "@/components/WhoIsItFor";
 
 export default function Home() {
+  const faqs = [
+    {
+      q: "E se meu bebê for recém-nascido (ou já for maior)? O método funciona?",
+      a: "Sim. O método é construído sobre o desenvolvimento neurobiológico de cada fase. Para recém-nascidos, aplicamos os protocolos base para evitar vícios de sono antes mesmo de começarem. Para bebês maiores que já despertam muito, temos estratégias de desmame noturno guiado e quebra de associações negativas.",
+    },
+    {
+      q: "Já tentei de tudo e nada funcionou. Por que O Alvorecer do Descanso seria diferente?",
+      a: "Métodos tradicionais costumam focar apenas em rotinas engessadas ou táticas cruéis como 'deixar chorar no berço'. Nós atacamos a raiz biológica: a regulação do cortisol (hormônio do estresse) e o realinhamento do ciclo circadiano. O corpo do seu bebê vai entender organicamente que é hora de descansar.",
+    },
+    {
+      q: "Estou exausta e sem tempo. O material é muito extenso?",
+      a: "Foi desenhado cirurgicamente para mães privadas de sono. O guia é ultra-direto, sem enrolação teórica inútil. Você lê os 'Protocolos de Emergência da Madrugada' hoje e já sabe exatamente o que aplicar na mesma noite.",
+    },
+    {
+      q: "Em quantos dias eu começo a ver os resultados?",
+      a: "A regulação hormonal varia em cada criança, mas a grande maioria das nossas famílias relata um alongamento drástico das janelas de sono entre o 3º e o 7º dia de aplicação consistente do método.",
+    },
+    {
+      q: "E se eu aplicar tudo e meu bebê continuar sem dormir?",
+      a: "Você está amparada pela nossa Garantia Blindada de 30 Dias. Você pode aplicar os protocolos na rotina da sua casa durante o mês inteiro. Se no final de 30 dias você não sentir a sua sanidade mental voltando e o bebê dormindo profundamente, devolvemos 100% do seu dinheiro. Sem letras miúdas.",
+    },
+  ];
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "O Alvorecer do Descanso",
+    description: "Método acolhedor e baseado em ciência para o sono infantil.",
+    brand: {
+      "@type": "Brand",
+      name: "O Alvorecer do Descanso",
+    },
+    offers: {
+      "@type": "Offer",
+      url: "https://oalvorecerdodescanso.com.br",
+      priceCurrency: "BRL",
+      price: "67.90",
+      availability: "https://schema.org/InStock",
+    },
+  };
+
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#262626] relative isolate">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+
       <StickyMobileCTA />
 
       <div className="relative w-full overflow-hidden bg-[#0A1128]">
@@ -60,7 +123,7 @@ export default function Home() {
               >
                 +300
               </p>
-              <p className="mt-4 font-serif text-xl sm:text-2xl text-cream font-medium tracking-wide">
+              <p className="mt-4 font-serif text-xl sm:text-2xl text-cream font-medium tracking-wide text-balance">
                 vidas transformadas e noites restauradas
               </p>
               <p className="mx-auto mt-4 max-w-xl text-[15px] sm:text-base text-cream/70 font-light leading-relaxed font-sans">

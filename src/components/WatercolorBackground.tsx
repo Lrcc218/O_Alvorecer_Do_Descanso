@@ -187,22 +187,28 @@ export function WatercolorBackground() {
     const frameInterval = 1000 / targetFps;
     let lastRenderTime = 0;
 
-    const render = (timestamp: number) => {
-      animationFrameId = requestAnimationFrame(render);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      if (!isIntersecting) return; // Skip rendering if not visible
+    const render = (timestamp: number) => {
+      if (!prefersReducedMotion) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+
+      if (!isIntersecting && !prefersReducedMotion) return; // Skip rendering if not visible
 
       const elapsed = timestamp - lastRenderTime;
-      if (elapsed < frameInterval) return; // Drop frame to maintain 60fps cap
+      if (elapsed < frameInterval && !prefersReducedMotion) return; // Drop frame to maintain 60fps cap
       lastRenderTime = timestamp - (elapsed % frameInterval);
 
-      timer.update(timestamp);
-      const delta = timer.getDelta();
-      time += delta * 0.2; // Slow animation
+      if (!prefersReducedMotion) {
+        timer.update(timestamp);
+        const delta = timer.getDelta();
+        time += delta * 0.2; // Slow animation
 
-      // Smooth mouse interpolation
-      currentMouseX += (targetMouseX - currentMouseX) * 0.05;
-      currentMouseY += (targetMouseY - currentMouseY) * 0.05;
+        // Smooth mouse interpolation
+        currentMouseX += (targetMouseX - currentMouseX) * 0.05;
+        currentMouseY += (targetMouseY - currentMouseY) * 0.05;
+      }
 
       material.uniforms.u_time.value = time;
       material.uniforms.u_mouse.value.set(currentMouseX, currentMouseY);
@@ -210,7 +216,11 @@ export function WatercolorBackground() {
       renderer.render(scene, camera);
     };
 
-    animationFrameId = requestAnimationFrame(render);
+    if (prefersReducedMotion) {
+      render(0);
+    } else {
+      animationFrameId = requestAnimationFrame(render);
+    }
 
     // Cleanup
     return () => {

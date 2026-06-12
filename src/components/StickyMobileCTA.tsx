@@ -10,26 +10,48 @@ export function StickyMobileCTA() {
   const [offerVisible, setOfferVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const percent = calculateScrollPercentage();
-      // Show CTA after user scrolls past 30% of the document height
-      setPastHalf(percent >= 0.3);
+    // 1. Intersection Observer for guarantee section
+    const observer = new IntersectionObserver(
+      (entries) => {
+        setOfferVisible(entries[0].isIntersecting);
+      },
+      { rootMargin: "0px 0px 150px 0px" },
+    );
 
-      const offerSection = document.getElementById("garantia");
-      if (offerSection) {
-        const rect = offerSection.getBoundingClientRect();
-        // Hide CTA when the guarantee card is about to enter the viewport (150px before)
-        setOfferVisible(rect.top < window.innerHeight + 150);
-      } else {
-        setOfferVisible(false);
+    const offerSection = document.getElementById("garantia");
+    if (offerSection) observer.observe(offerSection);
+
+    // 2. Throttled scroll listener with cached threshold
+    let threshold = 0;
+    const calculateThreshold = () => {
+      threshold = 0.3 * (document.documentElement.scrollHeight - window.innerHeight);
+    };
+
+    calculateThreshold();
+    window.addEventListener("resize", calculateThreshold, { passive: true });
+
+    let rafId = 0;
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        rafId = requestAnimationFrame(() => {
+          setPastHalf(window.scrollY >= threshold);
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+
     handleScroll();
 
     return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", calculateThreshold);
       window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
     };
   }, []);
 

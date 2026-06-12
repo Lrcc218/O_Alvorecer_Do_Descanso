@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
-const faqs = [
+export const faqs = [
   {
     q: "E se meu bebê for recém-nascido (ou já for maior)? O método funciona?",
     a: "Sim. O método é construído sobre o desenvolvimento neurobiológico de cada fase. Para recém-nascidos, aplicamos os protocolos base para evitar vícios de sono antes mesmo de começarem. Para bebês maiores que já despertam muito, temos estratégias de desmame noturno guiado e quebra de associações negativas.",
@@ -31,10 +31,10 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section 
+    <section
       className="px-6 md:px-8 lg:px-12 xl:px-20 py-24 lg:py-32 relative text-cream overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #0A1128 0%, #1A0D08 100%)"
+        background: "linear-gradient(180deg, #0A1128 0%, #1A0D08 100%)",
       }}
     >
       {/* Brilho Dourado Forte no Topo */}
@@ -42,16 +42,18 @@ export function FAQ() {
         className="absolute inset-0 pointer-events-none mix-blend-screen"
         style={{
           opacity: 0.4,
-          background: "radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0) 70%)",
+          background:
+            "radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0) 70%)",
         }}
       />
-      
+
       {/* Glow Terracota profundo vindo de baixo */}
       <div
         className="absolute inset-0 pointer-events-none mix-blend-screen"
         style={{
           opacity: 0.4,
-          background: "radial-gradient(circle at 50% 100%, rgba(194, 109, 77, 0.3) 0%, rgba(194, 109, 77, 0) 60%)",
+          background:
+            "radial-gradient(circle at 50% 100%, rgba(194, 109, 77, 0.3) 0%, rgba(194, 109, 77, 0) 60%)",
         }}
       />
 
@@ -68,25 +70,33 @@ export function FAQ() {
 
         <div className="space-y-4">
           {faqs.map((faq, i) => (
-            <div 
-              key={i} 
+            <div
+              key={i}
               className="border border-[#D4AF37]/30 bg-gradient-to-r from-[#D4AF37]/[0.05] to-transparent rounded-2xl overflow-hidden transition-all duration-300 hover:bg-[#D4AF37]/[0.1] hover:border-[#D4AF37]/50 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] backdrop-blur-md"
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
-              >
-                <span className="font-serif text-lg md:text-xl font-medium pr-4 text-cream leading-snug">
-                  {faq.q}
-                </span>
-                <ChevronDown
-                  className={`w-6 h-6 shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
-                  style={{ color: "var(--gold)" }}
-                />
-              </button>
+              <h3>
+                <button
+                  id={`faq-button-${i}`}
+                  aria-expanded={openIndex === i}
+                  aria-controls={`faq-panel-${i}`}
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  className="w-full px-6 py-5 flex items-center justify-between text-left"
+                >
+                  <span className="font-serif text-lg md:text-xl font-medium pr-4 text-cream leading-snug">
+                    {faq.q}
+                  </span>
+                  <ChevronDown
+                    className={`w-6 h-6 shrink-0 transition-transform duration-300 ${openIndex === i ? "rotate-180" : ""}`}
+                    style={{ color: "var(--gold)" }}
+                  />
+                </button>
+              </h3>
               <AnimatePresence>
                 {openIndex === i && (
                   <motion.div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-button-${i}`}
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}

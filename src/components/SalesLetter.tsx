@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useReducedMotion } from "framer-motion";
 import { Sparkles, Zap, Target, BarChart3, Star, CheckCircle2 } from "lucide-react";
 import { CHECKOUT_URL, trackPurchaseClick } from "@/services/api";
 import { SleepPhasesVisualizer } from "@/components/SleepPhasesVisualizer";
@@ -60,7 +60,7 @@ const HERO_BLOCKS: TextBlock[] = [
     content:
       "O silêncio da casa só é quebrado pelo som da respiração ou pelo choro do seu bebê, que parece ecoar em cada fibra do seu corpo exausto.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto",
   },
   {
     id: "block-2",
@@ -74,7 +74,7 @@ const HERO_BLOCKS: TextBlock[] = [
       </>
     ),
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto",
   },
   {
     id: "block-3",
@@ -103,7 +103,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "O que você está vivenciando não é uma falha de instinto. É neurobiologia pura. O cérebro do seu bebê é uma arquitetura complexa que ainda está em plena construção. E o sistema nervoso dele está usando a sua exaustão para tentar encontrar o equilíbrio.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-5",
@@ -125,7 +125,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "Sentir-se sobrecarregada, irritada ou perdida não te faz uma mãe ruim. Faz de você uma pessoa operando em modo de sobrevivência neurológica.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-7",
@@ -152,7 +152,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "O bebê sente a sua agitação e o corpo dele entende que o ambiente está em perigo, disparando um estado de alerta máximo que impede o sono profundo.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-10",
@@ -177,7 +177,7 @@ const SALES_CONTENT: TextBlock[] = [
       </>
     ),
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-12",
@@ -186,7 +186,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "Ou você pode assumir o controle do ambiente da sua casa hoje com um mapa técnico e validado.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-13",
@@ -200,7 +200,7 @@ const SALES_CONTENT: TextBlock[] = [
       </>
     ),
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-14",
@@ -215,7 +215,7 @@ const SALES_CONTENT: TextBlock[] = [
       </>
     ),
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-15",
@@ -228,7 +228,7 @@ const SALES_CONTENT: TextBlock[] = [
       </>
     ),
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-16",
@@ -237,7 +237,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "Mas eu sei o que é estar no escuro da madrugada precisando de socorro. O descanso não pode ser um artigo de luxo inacessível.",
     className:
-      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide text-center max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
   {
     id: "block-17",
@@ -269,7 +269,7 @@ const SALES_CONTENT: TextBlock[] = [
     content:
       "Um investimento irrisório para transformar as madrugadas da sua casa, regular o sistema hormonal do seu filho e devolver a você a alegria de viver.",
     className:
-      "font-sans text-center font-medium text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide max-w-[750px] 2xl:max-w-[1000px] mx-auto lg:mx-auto",
+      "font-sans text-center font-medium text-lg md:text-xl 2xl:text-2xl leading-relaxed tracking-wide max-w-[750px] 2xl:max-w-[68ch] mx-auto lg:mx-auto",
   },
 ];
 
@@ -283,6 +283,16 @@ interface RevealBlockProps {
   spacing?: SpacingType;
 }
 
+const MotionP = motion.create("p");
+const MotionDiv = motion.create("div");
+const MotionBlockquote = motion.create("blockquote");
+
+const motionElements = {
+  p: MotionP,
+  div: MotionDiv,
+  blockquote: MotionBlockquote,
+};
+
 function RevealBlock({
   children,
   className = "",
@@ -290,11 +300,19 @@ function RevealBlock({
   style,
   spacing = "default",
 }: RevealBlockProps) {
-  const Component = motion.create(as);
+  const Component = motionElements[as] || MotionP;
+  const shouldReduceMotion = useReducedMotion();
+
+  const variants = shouldReduceMotion
+    ? {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { duration: 0.5 } },
+      }
+    : REVEAL_VARIANTS;
 
   return (
     <Component
-      variants={REVEAL_VARIANTS}
+      variants={variants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "0px", amount: "some" }}
@@ -307,19 +325,6 @@ function RevealBlock({
 }
 
 export function SalesLetter() {
-  const [isMounted, setIsMounted] = useState(false);
-
-  // Hydration guard estrito para Next.js SSR
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return (
-      <section className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40 min-h-screen bg-[#FAF5E6]" />
-    );
-  }
-
   return (
     <>
       {/* ═══════════════════════════════════════════════════════════════════

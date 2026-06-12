@@ -110,7 +110,10 @@ export function CurriculumGrid() {
   };
 
   return (
-    <section className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40 relative bg-gradient-to-b from-[#FCEFD2] via-[#FAF5E6] to-[#F7F3E9] overflow-hidden">
+    <section
+      id="curriculum"
+      className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40 relative bg-gradient-to-b from-[#FCEFD2] via-[#FAF5E6] to-[#F7F3E9] overflow-hidden"
+    >
       <div className="relative mx-auto max-w-6xl px-6 sm:px-8 z-10">
         {/* Section Header */}
         <div className="text-center mb-24">

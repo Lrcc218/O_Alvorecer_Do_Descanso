@@ -20,7 +20,7 @@ const AWAKENING_OPTIONS: { key: AwakeningOption; label: string }[] = [
 
 function computeScore(ageMonths: number, awakenings: AwakeningOption): FeedbackResult {
   // Base score from age normalization (younger babies naturally wake more)
-  let ageNorm = 0;
+  let ageNorm: number;
   if (ageMonths <= 3) ageNorm = 40;
   else if (ageMonths <= 6) ageNorm = 55;
   else if (ageMonths <= 12) ageNorm = 70;
@@ -77,6 +77,19 @@ function computeScore(ageMonths: number, awakenings: AwakeningOption): FeedbackR
 export function CircadianBlueprintTool() {
   const [ageMonths, setAgeMonths] = useState(6);
   const [awakenings, setAwakenings] = useState<AwakeningOption>("3-4");
+
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+    if (e.key === "ArrowRight") {
+      newIndex = (index + 1) % AWAKENING_OPTIONS.length;
+    } else if (e.key === "ArrowLeft") {
+      newIndex = (index - 1 + AWAKENING_OPTIONS.length) % AWAKENING_OPTIONS.length;
+    }
+    if (newIndex !== index) {
+      setAwakenings(AWAKENING_OPTIONS[newIndex].key);
+      document.getElementById(`radio-${AWAKENING_OPTIONS[newIndex].key}`)?.focus();
+    }
+  };
 
   const result = useMemo(() => computeScore(ageMonths, awakenings), [ageMonths, awakenings]);
 
@@ -169,14 +182,23 @@ export function CircadianBlueprintTool() {
               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400 font-sans mb-4">
                 Despertares Noturnos Frágeis Média
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                {AWAKENING_OPTIONS.map((opt) => (
+              <div
+                className="grid grid-cols-2 sm:grid-cols-4 gap-3"
+                role="radiogroup"
+                aria-label="Média de Despertares Noturnos"
+              >
+                {AWAKENING_OPTIONS.map((opt, index) => (
                   <button
                     key={opt.key}
+                    id={`radio-${opt.key}`}
+                    role="radio"
+                    aria-checked={awakenings === opt.key}
+                    tabIndex={awakenings === opt.key ? 0 : -1}
                     type="button"
                     data-selected={awakenings === opt.key ? "true" : "false"}
                     className="awakening-pill rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-sm font-semibold text-slate-300 font-sans hover:border-slate-700 transform-gpu will-change-transform [backface-visibility:hidden]"
                     onClick={() => setAwakenings(opt.key)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
                   >
                     {opt.label}
                   </button>

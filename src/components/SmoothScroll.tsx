@@ -28,7 +28,32 @@ export function SmoothScroll() {
     };
     rafId = requestAnimationFrame(raf);
 
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const anchor = target.closest('a[href^="#"]');
+      if (anchor) {
+        const href = anchor.getAttribute("href");
+        if (href && href !== "#") {
+          e.preventDefault();
+          const targetEl = document.querySelector(href);
+          if (targetEl) {
+            lenis.scrollTo(targetEl as HTMLElement, { offset: 0, duration: 1.15 });
+          }
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+
+    // Handle hash on load
+    if (window.location.hash) {
+      requestAnimationFrame(() => {
+        lenis.scrollTo(window.location.hash, { immediate: true });
+      });
+    }
+
     return () => {
+      document.removeEventListener("click", handleAnchorClick);
       cancelAnimationFrame(rafId);
       lenis.destroy();
     };

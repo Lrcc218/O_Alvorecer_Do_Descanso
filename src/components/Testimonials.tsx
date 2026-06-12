@@ -45,7 +45,10 @@ export function Testimonials() {
   ];
 
   return (
-    <section className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40 2xl:py-32 relative text-cream overflow-hidden bg-[#0A1128] touch-manipulation lazy-section">
+    <section
+      id="testimonials"
+      className="px-6 md:px-8 lg:px-12 xl:px-20 2xl:px-24 py-24 sm:py-32 lg:py-40 2xl:py-32 relative text-cream overflow-hidden bg-[#0A1128] touch-manipulation lazy-section"
+    >
       {/* ── AQUARELA FINE ART: Terracotta bloom ── */}
       <div
         className="absolute inset-0 pointer-events-none opacity-20"

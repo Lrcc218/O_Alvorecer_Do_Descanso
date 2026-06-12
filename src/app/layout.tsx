@@ -20,6 +20,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://oalvorecerdodescanso.com.br"),
   title: "A Arquitetura do Descanso — Resgate as Noites de Sono da Sua Família",
   description:
     "Método acolhedor e baseado em ciência para o sono infantil. +300 famílias dormindo em paz. Conexão, empatia e noites restauradas.",
@@ -80,6 +81,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
+              'ad_user_data': 'denied',
+              'ad_personalization': 'denied',
               'functionality_storage': 'denied',
               'personalization_storage': 'denied',
               'security_storage': 'granted'
@@ -87,21 +90,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           `}
         </Script>
 
-        {/* GA4 */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
-          `}
-        </Script>
+        {/* GA4 was here. It's now loaded exclusively via GTM. */}
 
         {/* GTM */}
+        {/* TODO: garantir que a tag GA4 está configurada no container do GTM */}
         <Script id="gtm-init" strategy="afterInteractive">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

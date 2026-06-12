@@ -110,6 +110,11 @@
     cursor: pointer;
     touch-action: manipulation;
   }
+  :where(a, button, [role="button"], input, textarea, select, [tabindex]):focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
   h1,
   h2,
   h3,
@@ -186,20 +191,26 @@ input[type="range"].circadian-slider::-moz-range-thumb {
   animation: glow-pulse 2s infinite ease-in-out;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ── ULTRA WIDE SCREEN ADAPTATION (43" displays etc) ── */
 @media (min-width: 1536px) {
   html {
-    /* Scales 1rem linearly with viewport width above 1536px.
-       This ensures the design adapts perfectly to any screen size (like 43" TVs),
-       avoiding the "centralized/constrained" look while maintaining proportions. */
-    font-size: 1.041666vw;
+    /* Scales 1rem linearly with viewport width above 1536px, with a cap */
+    font-size: clamp(16px, 1.04vw, 21px);
   }
 }
 
 /* ── PERFORMANCE UTILITIES (120Hz / MOBILE) ── */
 .gpu-accelerated {
-  will-change: transform, opacity;
-  transform: translateZ(0);
+  /* Removed permanent will-change to avoid GPU memory bloat. Framer Motion handles promotions dynamically. */
 }
 
 .lazy-section {

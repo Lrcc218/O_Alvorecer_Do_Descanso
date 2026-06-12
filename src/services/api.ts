@@ -21,31 +21,6 @@ declare global {
 }
 
 /**
- * Safely tracks a Page View event across platforms
- */
-export const trackPageView = (url: string = "") => {
-  try {
-    const currentUrl = url || (typeof window !== "undefined" ? window.location.pathname : "");
-
-    // Track Google Analytics 4
-    if (GA_MEASUREMENT_ID && typeof window !== "undefined" && window.gtag) {
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: currentUrl,
-      });
-      console.log(`[Analytics] GA4 PageView tracked for: ${currentUrl}`);
-    }
-
-    // Track Meta Pixel
-    if (META_PIXEL_ID && typeof window !== "undefined" && window.fbq) {
-      window.fbq("track", "PageView");
-      console.log("[Analytics] Meta PageView tracked");
-    }
-  } catch (error) {
-    console.error("[Analytics Error] Failed to track page view:", error);
-  }
-};
-
-/**
  * Safely tracks a purchase button click (Initiate Checkout)
  */
 export const trackPurchaseClick = (value: number = 67.9, currency: string = "BRL") => {
@@ -65,16 +40,11 @@ export const trackPurchaseClick = (value: number = 67.9, currency: string = "BRL
       // GTM (DataLayer)
       if (window.dataLayer) {
         window.dataLayer.push({ event: "begin_checkout", ...eventParams });
-      } else if (window.gtag) {
-        window.gtag("event", "begin_checkout", eventParams);
       }
-
-      console.log("[Analytics] BeginCheckout event tracked");
 
       // Track Meta Pixel
       if (window.fbq) {
         window.fbq("track", "InitiateCheckout", { value: value, currency: currency });
-        console.log("[Analytics] Meta InitiateCheckout event tracked");
       }
     }
   } catch (error) {
@@ -90,11 +60,9 @@ export const trackNavClick = (destination: string) => {
     if (typeof window !== "undefined") {
       const params = { destination_name: destination };
 
-      // GA4 e GTM
+      // GTM
       if (window.dataLayer) {
         window.dataLayer.push({ event: "nav_click", ...params });
-      } else if (window.gtag) {
-        window.gtag("event", "nav_click", params);
       }
 
       // Meta Pixel - Custom Event
@@ -117,13 +85,10 @@ export const trackVideoPlay = (videoId?: string) => {
 
       if (window.dataLayer) {
         window.dataLayer.push({ event: "video_play", ...params });
-      } else if (window.gtag) {
-        window.gtag("event", "video_play", params);
       }
 
       if (window.fbq) {
         window.fbq("trackCustom", "VideoPlay", params);
-        console.log("[Analytics] VideoPlay event tracked");
       }
     }
   } catch (error) {
@@ -142,19 +107,17 @@ export const grantConsent = (preferences: { analytics: boolean; marketing: boole
         window.gtag("consent", "update", {
           analytics_storage: preferences.analytics ? "granted" : "denied",
           ad_storage: preferences.marketing ? "granted" : "denied",
+          ad_user_data: preferences.marketing ? "granted" : "denied",
+          ad_personalization: preferences.marketing ? "granted" : "denied",
           functionality_storage: "granted", // Essential/Functional
           personalization_storage: preferences.analytics ? "granted" : "denied",
         });
-        console.log(
-          `[Analytics] GA4 consent updated. Analytics: ${preferences.analytics}, Marketing: ${preferences.marketing}`,
-        );
       }
 
       // Grant Meta Pixel consent
       if (window.fbq) {
         if (preferences.marketing) {
           window.fbq("consent", "grant");
-          console.log("[Analytics] Meta Pixel consent granted");
         } else {
           // If they explicitly denied marketing after init, we ensure it's revoked
           window.fbq("consent", "revoke");

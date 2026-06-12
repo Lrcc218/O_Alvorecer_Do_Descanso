@@ -19,7 +19,7 @@ export function VimeoPlayer({
   const containerRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<Player | null>(null);
   const [isMuted, setIsMuted] = useState(true);
-  const [hasStarted, setHasStarted] = useState(false);
+  const hasStartedRef = useRef(false);
 
   useEffect(() => {
     if (!containerRef.current || !videoId) return;
@@ -49,8 +49,8 @@ export function VimeoPlayer({
 
     // Track when user plays
     playerRef.current.on("play", () => {
-      if (!hasStarted) {
-        setHasStarted(true);
+      if (!hasStartedRef.current) {
+        hasStartedRef.current = true;
         trackVideoPlay(videoId);
       }
     });
@@ -60,7 +60,7 @@ export function VimeoPlayer({
         playerRef.current.destroy();
       }
     };
-  }, [videoId, videoHash, hasStarted]);
+  }, [videoId, videoHash]);
 
   // Unmute function for the overlay
   const handleUnmute = () => {

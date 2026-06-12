@@ -1,6 +1,6 @@
 "use client";
 
-import { ShieldCheck, Check, Instagram } from "lucide-react";
+import { ShieldCheck, Check, MessageCircle } from "lucide-react";
 import { CHECKOUT_URL, trackPurchaseClick, trackNavClick } from "@/services/api";
 import { LuxuryDivider } from "@/components/LuxuryDivider";
 
@@ -109,7 +109,7 @@ export function Footer() {
             className="mx-auto mb-6 inline-flex h-12 w-12 items-center justify-center rounded-full"
             style={{ background: "var(--gradient-gold)" }}
           >
-            <Instagram className="h-5 w-5 text-gold-foreground" />
+            <MessageCircle className="h-5 w-5 text-gold-foreground" />
           </div>
           <p className="text-[15px] sm:text-[17px] leading-relaxed text-cream/85">
             Ainda tem dúvidas se o método serve para a idade do seu bebê? Fale diretamente comigo.{" "}
@@ -123,7 +123,7 @@ export function Footer() {
             >
               Clique aqui
             </a>{" "}
-            para mandar uma mensagem no Direct do Instagram{" "}
+            para mandar uma mensagem no Direct do MessageCircle{" "}
             <span className="font-semibold" style={{ color: "var(--gold)" }}>
               @SeuPerfil
             </span>

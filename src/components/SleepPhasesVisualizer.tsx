@@ -54,6 +54,20 @@ const phaseData: Record<PhaseKey, PhaseData> = {
 export function SleepPhasesVisualizer() {
   const [activePhase, setActivePhase] = useState<PhaseKey>("rem");
   const current = phaseData[activePhase];
+  const phaseKeys = Object.keys(phaseData) as PhaseKey[];
+
+  const handleKeyDown = (e: React.KeyboardEvent, index: number) => {
+    let newIndex = index;
+    if (e.key === "ArrowRight") {
+      newIndex = (index + 1) % phaseKeys.length;
+    } else if (e.key === "ArrowLeft") {
+      newIndex = (index - 1 + phaseKeys.length) % phaseKeys.length;
+    }
+    if (newIndex !== index) {
+      setActivePhase(phaseKeys[newIndex]);
+      document.getElementById(`tab-${phaseKeys[newIndex]}`)?.focus();
+    }
+  };
 
   return (
     <section
@@ -88,14 +102,24 @@ export function SleepPhasesVisualizer() {
         </div>
 
         {/* Tab Pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12 sm:mb-16">
-          {(Object.keys(phaseData) as PhaseKey[]).map((key) => (
+        <div
+          className="flex flex-wrap justify-center gap-3 mb-12 sm:mb-16"
+          role="tablist"
+          aria-label="Fases do Sono"
+        >
+          {phaseKeys.map((key, index) => (
             <button
               key={key}
+              id={`tab-${key}`}
+              role="tab"
+              aria-selected={activePhase === key}
+              aria-controls={`panel-${key}`}
+              tabIndex={activePhase === key ? 0 : -1}
               type="button"
               data-active={activePhase === key ? "true" : "false"}
               className="phase-tab px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider font-sans border border-[#F5F5F7]/15 text-[#F5F5F7]/70 hover:text-[#F5F5F7] hover:border-[#F5F5F7]/30 transform-gpu will-change-transform [backface-visibility:hidden]"
               onClick={() => setActivePhase(key)}
+              onKeyDown={(e) => handleKeyDown(e, index)}
             >
               {phaseData[key].tabLabel}
             </button>
@@ -103,7 +127,12 @@ export function SleepPhasesVisualizer() {
         </div>
 
         {/* Waveform + Detail Card and Dashboard panel grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start mx-auto max-w-5xl lg:max-w-none">
+        <div
+          id={`panel-${activePhase}`}
+          role="tabpanel"
+          aria-labelledby={`tab-${activePhase}`}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start mx-auto max-w-5xl lg:max-w-none"
+        >
           {/* LEFT: SVG Waveform Panel (Col-span-6) */}
           <div className="lg:col-span-6 relative rounded-2xl border border-[#F5F5F7]/10 bg-[#F5F5F7]/[0.03] backdrop-blur-sm p-6 sm:p-8 overflow-hidden transform-gpu will-change-transform [backface-visibility:hidden] h-full flex flex-col justify-between">
             <div className="mb-8">
